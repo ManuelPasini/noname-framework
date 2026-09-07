@@ -1,0 +1,32 @@
+.documentation-section {
+    border-top: 1px solid #ccc;
+    padding-block: var(--space-lg);
+}
+
+.documentation-section__intro {
+    max-width: 52rem;
+    margin-bottom: var(--space-md);
+}
+
+.documentation-section__intro> :not(:last-child) {
+    margin-bottom: var(--space-xs);
+}
+
+.typography__examples {
+    display: grid;
+    gap: var(--space-sm);
+}
+
+.typography__examples>div {
+    border-bottom: 1px solid #e5e5e5;
+    padding-bottom: var(--space-sm);
+}
+
+.typography__examples ul {
+    margin-block: 0;
+    padding-left: 1.25em;
+}
+
+.typography__note {
+    margin-top: var(--space-sm);
+}

@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="it">
+  <head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Pixelcut Framework</title>
+  <meta name="description" content="Pixelcut Framework: base frontend modulare con Twig, SCSS e JavaScript."/>
+  <meta name="keywords" content="frontend framework, Twig, SCSS, JavaScript, componenti UI"/>
+  <meta name="author" content="Pixelcut Framework"/>
+  <meta name="robots" content="index, follow"/>
+  <meta property="og:title" content="Pixelcut Framework"/>
+  <meta property="og:description" content="Pixelcut Framework: base frontend modulare con Twig, SCSS e JavaScript."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:site_name" content="Pixelcut Framework"/>
+  <meta property="og:locale" content="it_IT"/>
+  <meta name="twitter:card" content="summary"/>
+  <meta name="twitter:title" content="Pixelcut Framework"/>
+  <meta name="twitter:description" content="Pixelcut Framework: base frontend modulare con Twig, SCSS e JavaScript."/>
+  <meta name="application-name" content="Pixelcut Framework"/>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Pixelcut Framework","inLanguage":"it-IT","url":"/","description":"Pixelcut Framework: base frontend modulare con Twig, SCSS e JavaScript."}</script>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+</head>
+
+  <body>
+    <div id="loader" aria-hidden="true">
+      <div class="load"></div>
+    </div>
+
+    <div class="container">
+      <header class="site-header">
+        <p class="text-xs" data-gsap="reveal">
+          Framework documentation / style guide
+        </p>
+        <h1 data-gsap="reveal">Pixelcut Framework</h1>
+        <p data-gsap="reveal">
+          Base frontend modulare per siti, landing page, applicazioni e interfacce.
+        </p>
+      </header>
+
+      <main>
+        <section class="documentation-section typography" aria-labelledby="typography-title" data-gsap="reveal">
+  <div class="documentation-section__intro">
+    <h2 id="typography-title">Typography</h2>
+    <p>
+      La tipografia usa token fluidi per font-size e line-height.
+      Le classi <code>.text-*</code> espongono l'intera scala tipografica.
+    </p>
+  </div>
+
+  <div class="typography__examples">
+    <div>
+      <code>.text-4xl</code>
+      <div class="text-4xl">Example heading</div>
+    </div>
+
+    <div>
+      <code>.text-3xl</code>
+      <div class="text-3xl">Example heading</div>
+    </div>
+
+    <div>
+      <code>.text-2xl</code>
+      <div class="text-2xl">Example heading</div>
+    </div>
+
+    <div>
+      <code>.text-xl</code>
+      <div class="text-xl">Example heading</div>
+    </div>
+
+    <div>
+      <code>.text-lg</code>
+      <div class="text-lg">Example heading</div>
+    </div>
+
+    <div>
+      <code>.text-md</code>
+      <div class="text-md">Example heading</div>
+    </div>
+
+    <div>
+      <code>.text-sm</code>
+      <div class="text-sm">Example heading</div>
+    </div>
+
+    <div>
+      <code>.text-xs</code>
+      <div class="text-xs">Example heading</div>
+    </div>
+
+    <div>
+      <code>p</code>
+      <p>Un paragrafo usa la dimensione e l’interlinea fluide predefinite.</p>
+    </div>
+
+    <div>
+      <code>ul</code>
+      <ul>
+        <li>Elemento di lista</li>
+        <li>Elemento di lista</li>
+      </ul>
+    </div>
+  </div>
+
+  <p class="typography__note text-xs">
+    Scale:
+    <code>.text-xs</code>,
+    <code>.text-sm</code>,
+    <code>.text-md</code>,
+    <code>.text-lg</code>,
+    <code>.text-xl</code>,
+    <code>.text-2xl</code>,
+    <code>.text-3xl</code>,
+    <code>.text-4xl</code>.
+  </p>
+</section>        <section class="documentation-section spaces" aria-labelledby="spaces-title" data-gsap="reveal">
+	<div class="documentation-section__intro">
+		<h2 id="spaces-title">Spacing</h2>
+
+	</div>
+
+	<div class="spaces__examples">
+					<article class="spaces__example">
+				<div class="spaces__meta">
+					<code>.space-xs</code>
+					<span class="text-xs">var(--space-xs)</span>
+				</div>
+				<div class="spaces__visual padding-bottom-xs">
+					<span class="spaces__gap" aria-hidden="true"></span>
+				</div>
+			</article>
+					<article class="spaces__example">
+				<div class="spaces__meta">
+					<code>.space-sm</code>
+					<span class="text-xs">var(--space-sm)</span>
+				</div>
+				<div class="spaces__visual padding-bottom-sm">
+					<span class="spaces__gap" aria-hidden="true"></span>
+				</div>
+			</article>
+					<article class="spaces__example">
+				<div class="spaces__meta">
+					<code>.space-md</code>
+					<span class="text-xs">var(--space-md)</span>
+				</div>
+				<div class="spaces__visual padding-bottom-md">
+					<span class="spaces__gap" aria-hidden="true"></span>
+				</div>
+			</article>
+					<article class="spaces__example">
+				<div class="spaces__meta">
+					<code>.space-lg</code>
+					<span class="text-xs">var(--space-lg)</span>
+				</div>
+				<div class="spaces__visual padding-bottom-lg">
+					<span class="spaces__gap" aria-hidden="true"></span>
+				</div>
+			</article>
+					<article class="spaces__example">
+				<div class="spaces__meta">
+					<code>.space-xl</code>
+					<span class="text-xs">var(--space-xl)</span>
+				</div>
+				<div class="spaces__visual padding-bottom-xl">
+					<span class="spaces__gap" aria-hidden="true"></span>
+				</div>
+			</article>
+					<article class="spaces__example">
+				<div class="spaces__meta">
+					<code>.space-2xl</code>
+					<span class="text-xs">var(--space-2xl)</span>
+				</div>
+				<div class="spaces__visual padding-bottom-2xl">
+					<span class="spaces__gap" aria-hidden="true"></span>
+				</div>
+			</article>
+					<article class="spaces__example">
+				<div class="spaces__meta">
+					<code>.space-3xl</code>
+					<span class="text-xs">var(--space-3xl)</span>
+				</div>
+				<div class="spaces__visual padding-bottom-3xl">
+					<span class="spaces__gap" aria-hidden="true"></span>
+				</div>
+			</article>
+					<article class="spaces__example">
+				<div class="spaces__meta">
+					<code>.space-4xl</code>
+					<span class="text-xs">var(--space-4xl)</span>
+				</div>
+				<div class="spaces__visual padding-bottom-4xl">
+					<span class="spaces__gap" aria-hidden="true"></span>
+				</div>
+			</article>
+			</div>
+</section>
+        <section class="documentation-section gallery" aria-labelledby="documentation-gallery-title" data-gsap="reveal">
+  <div class="documentation-section__intro">
+    <p class="text-xs">Componente</p>
+    <h2 id="documentation-gallery-title">Gallery</h2>
+    <p>
+      Gallery riutilizzabile basata su Swiper. Riceve un identificatore, immagini
+      e opzioni di visualizzazione.
+    </p>
+    <p class="text-xs">
+      <code>images: [{ src, alt }]</code> ·
+      <code>slidesDesktop: 4</code>
+    </p>
+  </div>
+
+  <div
+    class="gallery__viewport swiper"
+    id="documentation-gallery"
+    data-gallery
+    data-slides-desktop="4"
+    aria-label="Esempio gallery"
+  >
+    <div class="swiper-wrapper">
+              <div class="swiper-slide">
+          <img src="/images/gallery-91.jpg" alt="Esempio immagine gallery 91" loading="lazy"/>
+        </div>
+              <div class="swiper-slide">
+          <img src="/images/gallery-92.jpg" alt="Esempio immagine gallery 92" loading="lazy"/>
+        </div>
+              <div class="swiper-slide">
+          <img src="/images/gallery-93.jpg" alt="Esempio immagine gallery 93" loading="lazy"/>
+        </div>
+              <div class="swiper-slide">
+          <img src="/images/gallery-94.jpg" alt="Esempio immagine gallery 94" loading="lazy"/>
+        </div>
+              <div class="swiper-slide">
+          <img src="/images/gallery-95.jpg" alt="Esempio immagine gallery 95" loading="lazy"/>
+        </div>
+              <div class="swiper-slide">
+          <img src="/images/gallery-96.jpg" alt="Esempio immagine gallery 96" loading="lazy"/>
+        </div>
+              <div class="swiper-slide">
+          <img src="/images/gallery-97.jpg" alt="Esempio immagine gallery 97" loading="lazy"/>
+        </div>
+              <div class="swiper-slide">
+          <img src="/images/gallery-98.jpg" alt="Esempio immagine gallery 98" loading="lazy"/>
+        </div>
+              <div class="swiper-slide">
+          <img src="/images/gallery-99.jpg" alt="Esempio immagine gallery 99" loading="lazy"/>
+        </div>
+          </div>
+
+    <button
+      class="swiper-button-prev"
+      type="button"
+      aria-label="Immagine precedente"
+    ></button>
+    <button
+      class="swiper-button-next"
+      type="button"
+      aria-label="Immagine successiva"
+    ></button>
+  </div>
+</section>
+      </main>
+
+      <footer class="site-footer">
+  <p class="text-xs">Pixelcut Framework</p>
+</footer>
+    </div>
+
+    <script type="module" src="/src/js/main.js"></script>
+  </body>
+</html>

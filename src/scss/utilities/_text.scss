@@ -1,0 +1,39 @@
+@use "sass:map";
+@use "sass:math";
+@use "../abstracts/tokens" as *;
+
+@mixin line-height($name) {
+  $values: map.get($line-heights, $name);
+  $min: map.get($values, min);
+  $max: map.get($values, max);
+  $mid: math.div($min + $max, 2);
+
+  // Fallback per WebKit che non supporta * e / in calc().
+  line-height: $min;
+
+  @media (min-width: 768px) {
+    line-height: $mid;
+  }
+
+  @media (min-width: 1200px) {
+    line-height: $max;
+  }
+
+  // I browser moderni sovrascrivono il fallback con il valore fluido.
+  //line-height: var(--line-height-#{$name});
+}
+
+@mixin text($size, $line: $size, $margin: null) {
+  font-size: var(--font-size-#{$size});
+  @include line-height($line);
+
+  @if $margin {
+    margin-bottom: var(--space-#{$margin});
+  }
+}
+
+@each $name, $value in $font-size {
+  .text-#{$name} {
+    @include text($name);
+  }
+}

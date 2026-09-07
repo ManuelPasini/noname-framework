@@ -1,0 +1,37 @@
+@use "sass:math";
+
+$fluid-min-width: 320px;
+$fluid-max-width: 1200px;
+$root-font-size: 16px;
+
+@function strip-unit($value) {
+  @if math.is-unitless($value) {
+    @return $value;
+  }
+
+  @return math.div($value, $value * 0 + 1);
+}
+
+@function fluid($min, $max) {
+  @if math.is-unitless($min) or math.is-unitless($max) {
+    @error "fluid() richiede valori con unità. Usa fluid-number() per valori unitless.";
+  }
+
+  $min-number: strip-unit($min);
+  $max-number: strip-unit($max);
+  // Convertiamo la pendenza in px/px, poi in vw. I valori finali restano in rem.
+  $min-px: $min-number * $root-font-size;
+  $max-px: $max-number * $root-font-size;
+  $slope: math.div($max-px - $min-px, $fluid-max-width - $fluid-min-width);
+  $intercept: math.div($min-px - $slope * $fluid-min-width, $root-font-size);
+
+  @return clamp(#{$min},
+    calc(#{$intercept}#{math.unit($min)} + #{$slope * 100}vw),
+    #{$max});
+}
+
+@function fluid-number($min, $max) {
+  @return clamp(#{$min},
+    calc(#{$min} + (#{$max} - #{$min}) * ((100vw - #{$fluid-min-width}) / (#{$fluid-max-width} - #{$fluid-min-width}))),
+    #{$max});
+}

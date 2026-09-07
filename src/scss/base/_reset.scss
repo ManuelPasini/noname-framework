@@ -1,0 +1,41 @@
+@use "sass:map";
+@use "../abstracts/functions" as *;
+@use "../abstracts/tokens" as *;
+
+/* reset */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-block: 0;
+}
+
+:root {
+
+    @each $name, $value in $spaces {
+        --space-#{$name}: #{$value};
+    }
+
+    @each $name, $value in $font-size {
+        --font-size-#{$name}: #{$value};
+    }
+
+  @each $name, $values in $line-heights {
+    --line-height-#{$name}: #{fluid-number(map.get($values, min), map.get($values, max))};
+  }
+
+}
+
+body {
+    font-family: $font-family-base;
+    font-weight: 300;
+}
+
+a {
+  color:$black;
+  text-decoration: underline;
+}
+

@@ -1,0 +1,20 @@
+<section class="documentation-section spaces" aria-labelledby="spaces-title" data-gsap="reveal">
+	<div class="documentation-section__intro">
+		<h2 id="spaces-title">Spacing</h2>
+
+	</div>
+
+	<div class="spaces__examples">
+		{% for name in ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl'] %}
+			<article class="spaces__example">
+				<div class="spaces__meta">
+					<code>.space-{{ name }}</code>
+					<span class="text-xs">var(--space-{{ name }})</span>
+				</div>
+				<div class="spaces__visual padding-bottom-{{ name }}">
+					<span class="spaces__gap" aria-hidden="true"></span>
+				</div>
+			</article>
+		{% endfor %}
+	</div>
+</section>

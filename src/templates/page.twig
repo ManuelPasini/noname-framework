@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="{{ page.htmlLang }}">
+  {% include "../components/head/head.twig" %}
+
+  <body>
+    <div id="loader" aria-hidden="true">
+      <div class="load"></div>
+    </div>
+
+    <div class="container">
+      <header class="site-header">
+        <p class="text-xs" data-gsap="reveal">
+          Framework documentation / style guide
+        </p>
+        <h1 data-gsap="reveal">Pixelcut Framework</h1>
+        <p data-gsap="reveal">
+          Base frontend modulare per siti, landing page, applicazioni e interfacce.
+        </p>
+      </header>
+
+      <main>
+        {% include "../components/typography/typography.twig" %}
+        {% include "../components/spaces/spaces.twig" %}
+        {% include "../components/gallery/gallery.twig" %}
+      </main>
+
+      {% include "../components/footer/footer.twig" %}
+    </div>
+
+    <script type="module" src="/src/js/main.js"></script>
+  </body>
+</html>

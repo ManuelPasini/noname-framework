@@ -1,0 +1,28 @@
+.spaces__examples {
+  display: grid;
+  gap: var(--space-sm);
+}
+
+.spaces__meta {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-xs);
+}
+
+.spaces__visual {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  background-color: #000;
+}
+
+.spaces__gap {
+  display: block;
+  width: 100%;
+  background: repeating-linear-gradient(135deg,
+      rgba(220, 53, 69, 0.16) 0,
+      rgba(220, 53, 69, 0.16) 0.35rem,
+      transparent 0.35rem,
+      transparent 0.7rem);
+}

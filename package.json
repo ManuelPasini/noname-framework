@@ -1,0 +1,29 @@
+{
+  "name": "pixelcut-framework",
+  "version": "1.0.0",
+  "description": "A modular frontend starting point built with Twig, SCSS and JavaScript.",
+  "main": "index.js",
+  "scripts": {
+    "render": "node scripts/render-pages.js",
+    "predev": "npm run render",
+    "dev": "vite",
+    "prebuild": "npm run render",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "sass": "^1.101.3",
+    "vite": "^7.3.6"
+  },
+  "dependencies": {
+    "gsap": "^3.15.0",
+    "lenis": "^1.3.26",
+    "modern-normalize": "^3.0.1",
+    "swiper": "^14.0.6",
+    "twig": "^3.0.0"
+  }
+}

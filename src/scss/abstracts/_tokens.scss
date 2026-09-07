@@ -1,0 +1,55 @@
+@use "sass:map";
+@use "functions" as *;
+
+/* layout */
+$container-max-width: 1200px;
+$container-padding: 1rem;
+
+/* breakpoints */
+$breakpoints: (
+  sm: 576px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1280px,
+  xxl: 1440px
+);
+
+/* colors */
+$white: #fff;
+$black: #000;
+$grey: #ccc;
+
+/* tipography */
+$font-family-base: "Fira Code", monospace;
+$font-size: (
+  xs:  fluid(.75rem,  .875rem),
+  sm:  fluid(.875rem, 1rem),
+  md:  fluid(1rem,    1.25rem),
+  lg:  fluid(1.125rem,1.5rem),
+  xl:  fluid(1.5rem,  2.25rem),
+  2xl: fluid(2rem,    3rem),
+  3xl: fluid(2.5rem,  4.5rem),
+  4xl: fluid(3rem,    6rem)
+);
+$line-heights: (
+  xs:  (min: 1.25, max: 1.35),
+  sm:  (min: 1.35, max: 1.45),
+  md:  (min: 1.5, max: 1.6),
+  lg:  (min: 1.45, max: 1.55),
+  xl:  (min: 1.2, max: 1.3),
+  2xl: (min: 1.15, max: 1.2),
+  3xl: (min: 1.05, max: 1.15),
+  4xl: (min: 1, max: 1.1)
+);
+
+/* spaces */
+$spaces: (
+  xs: fluid(.25rem, .35rem),
+  sm: fluid(.5rem, .75rem),
+  md: fluid(.75rem, 1rem),
+  lg: fluid(1rem, 1.5rem),
+  xl: fluid(1.5rem, 2.5rem),
+  2xl: fluid(2.5rem, 4rem),
+  3xl: fluid(4rem, 6.5rem),
+  4xl: fluid(6.5rem, 10rem)
+);
