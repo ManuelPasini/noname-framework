@@ -13,6 +13,7 @@ h1 {
 h2 {
   @extend .text-3xl;
   color: #f00;
+  margin-bottom: var(--space-md);
 }
 
 h3 {
@@ -31,7 +32,7 @@ h6 {
   @extend .text-md;
 }
 
-[class^="text-"] {
+h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
 }
 

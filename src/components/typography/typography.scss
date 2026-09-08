@@ -3,15 +3,14 @@
 .documentation-section {
     border-top: 1px solid #ccc;
     padding-block: var(--space-lg);
+
+
 }
 
 .documentation-section__intro {
     margin-bottom: var(--space-md);
 }
 
-.documentation-section__intro> :not(:last-child) {
-    margin-bottom: var(--space-xs);
-}
 
 .typography__examples {
     display: grid;
@@ -33,6 +32,7 @@
     padding: var(--space-sm);
     overflow-x: auto;
     background: #f8f9fa;
+    margin-bottom: var(--space-sm);
 }
 
 .typography__mixin-parameters {
@@ -61,4 +61,12 @@
 
 .typography__note {
     margin-top: var(--space-sm);
+}
+
+.documentation-section {
+  .typography__examples {
+    [class*="text-"] {
+      font-weight: 700;
+    }
+  }
 }

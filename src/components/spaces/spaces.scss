@@ -10,6 +10,13 @@
   gap: var(--space-xs);
 }
 
+.spaces__code {
+  margin: 0;
+  padding: var(--space-sm);
+  overflow-x: auto;
+  background: #f8f9fa;
+}
+
 .spaces__visual {
   display: flex;
   flex-direction: column;
