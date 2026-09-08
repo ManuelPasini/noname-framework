@@ -1,32 +1,43 @@
 <!doctype html>
 <html lang="{{ page.htmlLang }}">
-  {% include "../components/head/head.twig" %}
+	{% include "../components/head/head.twig" %}
 
-  <body>
-    <div id="loader" aria-hidden="true">
-      <div class="load"></div>
-    </div>
+	<body>
+		<div id="loader" aria-hidden="true">
+			<div class="load"></div>
+		</div>
 
-    <div class="container">
-      <header class="site-header">
-        <p class="text-xs" data-gsap="reveal">
-          Framework documentation / style guide
-        </p>
-        <h1 data-gsap="reveal">Pixelcut Framework</h1>
-        <p data-gsap="reveal">
-          Base frontend modulare per siti, landing page, applicazioni e interfacce.
-        </p>
-      </header>
+		<div class="container">
+			<header class="site-header" data-gsap="reveal">
+				<p class="text-xs">
+					Framework documentation / style guide
+				</p>
+				<h1>NoName Framework</h1>
+				<p>
+					Base frontend modulare per siti, landing page, applicazioni e interfacce.
+				</p>
+				<p class="typography__note text-xs">
+					Scala globale:
+					<code>xs</code>,
+					<code>sm</code>,
+					<code>md</code>,
+					<code>lg</code>,
+					<code>xl</code>,
+					<code>2xl</code>,
+					<code>3xl</code>,
+					<code>4xl</code>.
+				</p>
+			</header>
 
-      <main>
-        {% include "../components/typography/typography.twig" %}
-        {% include "../components/spaces/spaces.twig" %}
-        {% include "../components/gallery/gallery.twig" %}
-      </main>
+			<main>
+				{% include "../components/typography/typography.twig" %}
+				{% include "../components/spaces/spaces.twig" %}
+				{% include "../components/gallery/gallery.twig" %}
+			</main>
 
-      {% include "../components/footer/footer.twig" %}
-    </div>
+			{% include "../components/footer/footer.twig" %}
+		</div>
 
-    <script type="module" src="/src/js/main.js"></script>
-  </body>
+		<script type="module" src="/src/js/main.js"></script>
+	</body>
 </html>

@@ -12,22 +12,38 @@ $root-font-size: 16px;
   @return math.div($value, $value * 0 + 1);
 }
 
+@function to-px($value) {
+  @if math.is-unitless($value) {
+    @error "to-px() richiede un valore con unità. Usa px o rem.";
+  }
+
+  $unit: math.unit($value);
+
+  @if $unit == "px" {
+    @return $value;
+  }
+
+  @if $unit == "rem" {
+    @return math.div($value, 1rem) * $root-font-size;
+  }
+
+  @error "Unità '#{$unit}' non supportata. Usa px o rem.";
+}
+
 @function fluid($min, $max) {
   @if math.is-unitless($min) or math.is-unitless($max) {
     @error "fluid() richiede valori con unità. Usa fluid-number() per valori unitless.";
   }
 
-  $min-number: strip-unit($min);
-  $max-number: strip-unit($max);
-  // Convertiamo la pendenza in px/px, poi in vw. I valori finali restano in rem.
-  $min-px: $min-number * $root-font-size;
-  $max-px: $max-number * $root-font-size;
+  // I calcoli vengono normalizzati in px, così fluid() accetta sia px sia rem.
+  $min-px: to-px($min);
+  $max-px: to-px($max);
   $slope: math.div($max-px - $min-px, $fluid-max-width - $fluid-min-width);
-  $intercept: math.div($min-px - $slope * $fluid-min-width, $root-font-size);
+  $intercept: $min-px - $slope * $fluid-min-width;
 
-  @return clamp(#{$min},
-    calc(#{$intercept}#{math.unit($min)} + #{$slope * 100}vw),
-    #{$max});
+  @return clamp(#{$min-px},
+    calc(#{$intercept} + #{$slope * 100}vw),
+    #{$max-px});
 }
 
 @function fluid-number($min, $max) {

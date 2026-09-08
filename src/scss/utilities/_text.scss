@@ -23,12 +23,17 @@
   //line-height: var(--line-height-#{$name});
 }
 
-@mixin text($size, $line: $size, $margin: null) {
+@mixin text($size, $margin: null, $weight: null) {
   font-size: var(--font-size-#{$size});
-  @include line-height($line);
+
+  @include line-height($size);
 
   @if $margin {
     margin-bottom: var(--space-#{$margin});
+  }
+
+  @if $weight {
+    font-weight: $weight;
   }
 }
 

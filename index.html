@@ -1,119 +1,139 @@
 <!doctype html>
 <html lang="it">
-  <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Pixelcut Framework</title>
-  <meta name="description" content="Pixelcut Framework: base frontend modulare con Twig, SCSS e JavaScript."/>
-  <meta name="keywords" content="frontend framework, Twig, SCSS, JavaScript, componenti UI"/>
-  <meta name="author" content="Pixelcut Framework"/>
-  <meta name="robots" content="index, follow"/>
-  <meta property="og:title" content="Pixelcut Framework"/>
-  <meta property="og:description" content="Pixelcut Framework: base frontend modulare con Twig, SCSS e JavaScript."/>
-  <meta property="og:type" content="website"/>
-  <meta property="og:site_name" content="Pixelcut Framework"/>
-  <meta property="og:locale" content="it_IT"/>
-  <meta name="twitter:card" content="summary"/>
-  <meta name="twitter:title" content="Pixelcut Framework"/>
-  <meta name="twitter:description" content="Pixelcut Framework: base frontend modulare con Twig, SCSS e JavaScript."/>
-  <meta name="application-name" content="Pixelcut Framework"/>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Pixelcut Framework","inLanguage":"it-IT","url":"/","description":"Pixelcut Framework: base frontend modulare con Twig, SCSS e JavaScript."}</script>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+	<head>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<title>NoName Framework</title>
+	<meta name="description" content="NoName Framework: base frontend modulare con Twig, SCSS e JavaScript."/>
+	<meta name="keywords" content="frontend framework, Twig, SCSS, JavaScript, componenti UI"/>
+	<meta name="author" content="NoName Framework"/>
+	<meta name="robots" content="index, follow"/>
+	<meta property="og:title" content="NoName Framework"/>
+	<meta property="og:description" content="NoName Framework: base frontend modulare con Twig, SCSS e JavaScript."/>
+	<meta property="og:type" content="website"/>
+	<meta property="og:site_name" content="NoName Framework"/>
+	<meta property="og:locale" content="it_IT"/>
+	<meta name="twitter:card" content="summary"/>
+	<meta name="twitter:title" content="NoName Framework"/>
+	<meta name="twitter:description" content="NoName Framework: base frontend modulare con Twig, SCSS e JavaScript."/>
+	<meta name="application-name" content="NoName Framework"/>
+	<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"NoName Framework","inLanguage":"it-IT","url":"/","description":"NoName Framework: base frontend modulare con Twig, SCSS e JavaScript."}</script>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
 </head>
 
-  <body>
-    <div id="loader" aria-hidden="true">
-      <div class="load"></div>
-    </div>
+	<body>
+		<div id="loader" aria-hidden="true">
+			<div class="load"></div>
+		</div>
 
-    <div class="container">
-      <header class="site-header">
-        <p class="text-xs" data-gsap="reveal">
-          Framework documentation / style guide
-        </p>
-        <h1 data-gsap="reveal">Pixelcut Framework</h1>
-        <p data-gsap="reveal">
-          Base frontend modulare per siti, landing page, applicazioni e interfacce.
-        </p>
-      </header>
+		<div class="container">
+			<header class="site-header" data-gsap="reveal">
+				<p class="text-xs">
+					Framework documentation / style guide
+				</p>
+				<h1>NoName Framework</h1>
+				<p>
+					Base frontend modulare per siti, landing page, applicazioni e interfacce.
+				</p>
+				<p class="typography__note text-xs">
+					Scala globale:
+					<code>xs</code>,
+					<code>sm</code>,
+					<code>md</code>,
+					<code>lg</code>,
+					<code>xl</code>,
+					<code>2xl</code>,
+					<code>3xl</code>,
+					<code>4xl</code>.
+				</p>
+			</header>
 
-      <main>
-        <section class="documentation-section typography" aria-labelledby="typography-title" data-gsap="reveal">
-  <div class="documentation-section__intro">
-    <h2 id="typography-title">Typography</h2>
-    <p>
-      La tipografia usa token fluidi per font-size e line-height.
-      Le classi <code>.text-*</code> espongono l'intera scala tipografica.
-    </p>
-  </div>
+			<main>
+				<section class="documentation-section typography" aria-labelledby="typography-title" data-gsap="reveal">
+	<div class="documentation-section__intro">
+		<h2 id="typography-title">Typography</h2>
 
-  <div class="typography__examples">
-    <div>
-      <code>.text-4xl</code>
-      <div class="text-4xl">Example heading</div>
-    </div>
+		<pre class="typography__code"><code>@include text($size, $margin, $weight);</code></pre>
 
-    <div>
-      <code>.text-3xl</code>
-      <div class="text-3xl">Example heading</div>
-    </div>
+		<p>
+			<strong>$size</strong>
+			— font-size + line-height ·
+			<strong>$margin</strong>
+			— margin-bottom ·
+			<strong>$weight</strong>
+			— font-weight
+		</p>
 
-    <div>
-      <code>.text-2xl</code>
-      <div class="text-2xl">Example heading</div>
-    </div>
+		<pre class="typography__code"><code>@include text(md, xs, 700)</code></pre>
+		<p>
+			Solo
+			<code>$size</code>
+			è obbligatorio. I parametri opzionali possono essere omessi.
+		</p>
+		<pre class="typography__code"><code>@include text(md, $weight: 700);</code></pre>
 
-    <div>
-      <code>.text-xl</code>
-      <div class="text-xl">Example heading</div>
-    </div>
+	</div>
 
-    <div>
-      <code>.text-lg</code>
-      <div class="text-lg">Example heading</div>
-    </div>
+	<div class="typography__examples">
+		<div>
+			<code>.text-4xl</code>
+			<div class="text-4xl">Example text</div>
+		</div>
 
-    <div>
-      <code>.text-md</code>
-      <div class="text-md">Example heading</div>
-    </div>
+		<div>
+			<code>.text-3xl</code>
+			<div class="text-3xl">Example text</div>
+		</div>
 
-    <div>
-      <code>.text-sm</code>
-      <div class="text-sm">Example heading</div>
-    </div>
+		<div>
+			<code>.text-2xl</code>
+			<div class="text-2xl">Example text</div>
+		</div>
 
-    <div>
-      <code>.text-xs</code>
-      <div class="text-xs">Example heading</div>
-    </div>
+		<div>
+			<code>.text-xl</code>
+			<div class="text-xl">Example text</div>
+		</div>
 
-    <div>
-      <code>p</code>
-      <p>Un paragrafo usa la dimensione e l’interlinea fluide predefinite.</p>
-    </div>
+		<div>
+			<code>.text-lg</code>
+			<div class="text-lg">Example text</div>
+		</div>
 
-    <div>
-      <code>ul</code>
-      <ul>
-        <li>Elemento di lista</li>
-        <li>Elemento di lista</li>
-      </ul>
-    </div>
-  </div>
+		<div>
+			<code>.text-md</code>
+			<div class="text-md">Example text</div>
+		</div>
 
-  <p class="typography__note text-xs">
-    Scale:
-    <code>.text-xs</code>,
-    <code>.text-sm</code>,
-    <code>.text-md</code>,
-    <code>.text-lg</code>,
-    <code>.text-xl</code>,
-    <code>.text-2xl</code>,
-    <code>.text-3xl</code>,
-    <code>.text-4xl</code>.
-  </p>
-</section>        <section class="documentation-section spaces" aria-labelledby="spaces-title" data-gsap="reveal">
+		<div>
+			<code>.text-sm</code>
+			<div class="text-sm">Example text</div>
+		</div>
+
+		<div>
+			<code>.text-xs</code>
+			<div class="text-xs">Example text</div>
+		</div>
+
+		<div>
+			<code>p</code>
+			<p>Un paragrafo usa la dimensione e l’interlinea fluide predefinite.</p>
+		</div>
+
+		<div>
+			<code>ul</code>
+			<ul>
+				<li>Elemento di lista</li>
+				<li>Elemento di lista</li>
+			</ul>
+		</div>
+	</div>
+
+
+</section>
+				<section class="documentation-section spaces" aria-labelledby="spaces-title" data-gsap="reveal">
 	<div class="documentation-section__intro">
 		<h2 id="spaces-title">Spacing</h2>
 
@@ -122,7 +142,7 @@
 	<div class="spaces__examples">
 					<article class="spaces__example">
 				<div class="spaces__meta">
-					<code>.space-xs</code>
+					<code>.padding-bottom-xs</code>
 					<span class="text-xs">var(--space-xs)</span>
 				</div>
 				<div class="spaces__visual padding-bottom-xs">
@@ -131,7 +151,7 @@
 			</article>
 					<article class="spaces__example">
 				<div class="spaces__meta">
-					<code>.space-sm</code>
+					<code>.padding-bottom-sm</code>
 					<span class="text-xs">var(--space-sm)</span>
 				</div>
 				<div class="spaces__visual padding-bottom-sm">
@@ -140,7 +160,7 @@
 			</article>
 					<article class="spaces__example">
 				<div class="spaces__meta">
-					<code>.space-md</code>
+					<code>.padding-bottom-md</code>
 					<span class="text-xs">var(--space-md)</span>
 				</div>
 				<div class="spaces__visual padding-bottom-md">
@@ -149,7 +169,7 @@
 			</article>
 					<article class="spaces__example">
 				<div class="spaces__meta">
-					<code>.space-lg</code>
+					<code>.padding-bottom-lg</code>
 					<span class="text-xs">var(--space-lg)</span>
 				</div>
 				<div class="spaces__visual padding-bottom-lg">
@@ -158,7 +178,7 @@
 			</article>
 					<article class="spaces__example">
 				<div class="spaces__meta">
-					<code>.space-xl</code>
+					<code>.padding-bottom-xl</code>
 					<span class="text-xs">var(--space-xl)</span>
 				</div>
 				<div class="spaces__visual padding-bottom-xl">
@@ -167,7 +187,7 @@
 			</article>
 					<article class="spaces__example">
 				<div class="spaces__meta">
-					<code>.space-2xl</code>
+					<code>.padding-bottom-2xl</code>
 					<span class="text-xs">var(--space-2xl)</span>
 				</div>
 				<div class="spaces__visual padding-bottom-2xl">
@@ -176,7 +196,7 @@
 			</article>
 					<article class="spaces__example">
 				<div class="spaces__meta">
-					<code>.space-3xl</code>
+					<code>.padding-bottom-3xl</code>
 					<span class="text-xs">var(--space-3xl)</span>
 				</div>
 				<div class="spaces__visual padding-bottom-3xl">
@@ -185,7 +205,7 @@
 			</article>
 					<article class="spaces__example">
 				<div class="spaces__meta">
-					<code>.space-4xl</code>
+					<code>.padding-bottom-4xl</code>
 					<span class="text-xs">var(--space-4xl)</span>
 				</div>
 				<div class="spaces__visual padding-bottom-4xl">
@@ -194,7 +214,7 @@
 			</article>
 			</div>
 </section>
-        <section class="documentation-section gallery" aria-labelledby="documentation-gallery-title" data-gsap="reveal">
+				<section class="documentation-section gallery" aria-labelledby="documentation-gallery-title" data-gsap="reveal">
   <div class="documentation-section__intro">
     <p class="text-xs">Componente</p>
     <h2 id="documentation-gallery-title">Gallery</h2>
@@ -257,13 +277,13 @@
     ></button>
   </div>
 </section>
-      </main>
+			</main>
 
-      <footer class="site-footer">
-  <p class="text-xs">Pixelcut Framework</p>
+			<footer class="site-footer">
+  <p class="text-xs">NoName Framework</p>
 </footer>
-    </div>
+		</div>
 
-    <script type="module" src="/src/js/main.js"></script>
-  </body>
+		<script type="module" src="/src/js/main.js"></script>
+	</body>
 </html>

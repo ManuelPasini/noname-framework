@@ -1,10 +1,11 @@
+@use "../../scss/utilities/text" as *;
+
 .documentation-section {
     border-top: 1px solid #ccc;
     padding-block: var(--space-lg);
 }
 
 .documentation-section__intro {
-    max-width: 52rem;
     margin-bottom: var(--space-md);
 }
 
@@ -25,6 +26,37 @@
 .typography__examples ul {
     margin-block: 0;
     padding-left: 1.25em;
+}
+
+.typography__code {
+    margin: 0;
+    padding: var(--space-sm);
+    overflow-x: auto;
+    background: #f8f9fa;
+}
+
+.typography__mixin-parameters {
+    display: grid;
+    gap: var(--space-2xs);
+    margin: 0;
+}
+
+.typography__mixin-parameters > div {
+    display: grid;
+    grid-template-columns: minmax(9rem, 15rem) 1fr;
+    gap: var(--space-xs);
+}
+
+.typography__mixin-parameters dt,
+.typography__mixin-parameters dd {
+    margin: 0;
+}
+
+@media (max-width: 576px) {
+    .typography__mixin-parameters > div {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
 }
 
 .typography__note {

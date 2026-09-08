@@ -8,7 +8,7 @@ export const pages = [{
   htmlLang: "it",
   locale: "it_IT",
   url: "/",
-  description: "Pixelcut Framework: base frontend modulare con Twig, SCSS e JavaScript.",
+  description: "NoName Framework: base frontend modulare con Twig, SCSS e JavaScript.",
   keywords: "frontend framework, Twig, SCSS, JavaScript, componenti UI",
-  schema: { name: "Pixelcut Framework", inLanguage: "it-IT" }
+  schema: { name: "NoName Framework", inLanguage: "it-IT" }
 }];
