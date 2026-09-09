@@ -1,0 +1,50 @@
+@use "../../scss/layout" as layout;
+
+.grid-docs__example {
+  padding-block: var(--space-md);
+  border-bottom: 1px solid #e5e5e5;
+
+  &:last-child { border-bottom: 0; }
+}
+
+.grid-docs__label {
+  color: #f00;
+  font-weight: 700;
+  margin-bottom: var(--space-xs);
+}
+
+.grid-docs__visual {
+  margin-bottom: var(--space-sm);
+  background: #f8f9fa;
+  outline: 1px solid #e5e5e5;
+}
+
+.grid-docs__cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  min-height: 4rem;
+  padding: var(--space-xs);
+  background: #000;
+  color: #fff;
+  text-align: center;
+  overflow-wrap: anywhere;
+  font-size: var(--font-size-xs);
+}
+
+.grid-docs__ruler {
+  margin-bottom: var(--space-xs);
+
+  span {
+    min-width: 0;
+    text-align: center;
+    color: #f00;
+    font-size: var(--font-size-xs);
+  }
+}
+
+// Esempio reale dell'API semantica, senza classi strutturali nel markup.
+.grid-docs__mixin {
+  @include layout.auto-grid(250px, md);
+}

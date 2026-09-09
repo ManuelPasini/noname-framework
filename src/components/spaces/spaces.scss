@@ -8,6 +8,12 @@
   align-items: baseline;
   justify-content: space-between;
   gap: var(--space-xs);
+
+  .text-xs {
+    margin-bottom: var(--space-xs);
+    color: #f00;
+    font-weight: 700;
+  }
 }
 
 .spaces__code {

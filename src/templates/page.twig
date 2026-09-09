@@ -3,9 +3,6 @@
 	{% include "../components/head/head.twig" %}
 
 	<body>
-		<div id="loader" aria-hidden="true">
-			<div class="load"></div>
-		</div>
 
 		<div class="container">
 			<header class="site-header" data-gsap="reveal">
@@ -14,10 +11,10 @@
 				</p>
 				<h1>NoName Framework</h1>
 				<p>
-					Base frontend modulare per siti, landing page, applicazioni e interfacce.
+					Base frontend modulare e fluido.
 				</p>
-				<p class="typography__note text-xs">
-					Scala globale:
+				<p class="typography__note text-lg">
+					Scala globale: <span class="red">
 					<code>xs</code>,
 					<code>sm</code>,
 					<code>md</code>,
@@ -25,14 +22,15 @@
 					<code>xl</code>,
 					<code>2xl</code>,
 					<code>3xl</code>,
-					<code>4xl</code>.
+					<code>4xl</code></span>.
 				</p>
 			</header>
 
 			<main>
 				{% include "../components/typography/typography.twig" %}
 				{% include "../components/spaces/spaces.twig" %}
-				{% include "../components/gallery/gallery.twig" %}
+				{% include "../components/grid/grid.twig" %}
+				{# {% include "../components/gallery/gallery.twig" %} #}
 			</main>
 
 			{% include "../components/footer/footer.twig" %}

@@ -1,14 +1,13 @@
-@use "./abstracts/tokens" as *;
-@use "./base/reset";
-@use "./abstracts/mixins";
-@use "./base/typography";
-@use "./base/utilities";
-@use "./layout/container";
-@use "./layout/spacing";
-@use "./utilities/text";
-@use "./utilities/glitch";
+// Stili condivisi: ordine di caricamento della cascata.
+@use "./global";
+@use "./typography";
+@use "./utilities";
+@use "./layout";
+
+// Stili specifici dei componenti.
 @use "../components/typography/typography" as typography-docs;
 @use "../components/spaces/spaces";
+@use "../components/grid/grid" as grid-docs;
 @use "../components/gallery/gallery";
 @use "../components/head/head";
 @use "../components/footer/footer";

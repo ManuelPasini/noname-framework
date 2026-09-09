@@ -1,6 +1,7 @@
 @use "sass:map";
-@use "../abstracts/functions" as *;
-@use "../abstracts/tokens" as *;
+@use "settings" as *;
+
+// Reset degli elementi e custom properties condivise.
 
 /* reset */
 h1,
@@ -29,13 +30,8 @@ p {
 
 }
 
-body {
-    font-family: $font-family-base;
-    font-weight: 300;
-}
+// Stato iniziale della pagina: loader e animazioni di ingresso.
 
-a {
-  color:$black;
-  text-decoration: underline;
+[data-gsap="reveal"] {
+    opacity: 0;
 }
-

@@ -1,0 +1,112 @@
+<section class="documentation-section grid-docs" aria-labelledby="grid-title" data-gsap="reveal">
+	<div class="documentation-section__intro">
+		<h2 id="grid-title">Grid</h2>
+		<p>Colonne, span e spaziature componibili. CSS Grid per righe e colonne, Flexbox per allineare gli elementi lungo una direzione.</p>
+		<pre class="typography__code"><code>grid grid-cols-12 gap-md</code></pre>
+		<p><code>.grid</code> attiva la griglia; <code>.grid-cols-1</code> … <code>.grid-cols-12</code> definiscono le colonne. Il gap usa la stessa scala fluida di Spacing.</p>
+	</div>
+
+	<article class="grid-docs__example">
+		<h3 class="grid-docs__label text-sm">01 / Colonne uguali</h3>
+		{% for columns in [1, 2, 3, 4, 6, 12] %}
+			<p class="text-xs"><code>grid grid-cols-{{ columns }} gap-xs</code></p>
+			<div class="grid-docs__visual grid grid-cols-{{ columns }} gap-xs">
+				{% for column in 1..columns %}
+					<div class="grid-docs__cell">{{ column }}</div>
+				{% endfor %}
+			</div>
+		{% endfor %}
+	</article>
+
+	<article class="grid-docs__example">
+		<h3 class="grid-docs__label text-sm">02 / Span e righe</h3>
+		<p>Ogni elemento occupa una parte delle 12 colonne. Quando la riga è piena, il successivo passa alla riga seguente.</p>
+		<pre class="typography__code"><code>&lt;div class="grid grid-cols-12 gap-xs"&gt;
+    &lt;div class="col-span-8"&gt;8 / 12&lt;/div&gt;
+    &lt;div class="col-span-4"&gt;4 / 12&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+		<div class="grid-docs__ruler grid grid-cols-12 gap-xs" aria-hidden="true">
+			{% for column in 1..12 %}<span>{{ column }}</span>{% endfor %}
+		</div>
+		<div class="grid-docs__visual grid grid-cols-12 gap-xs">
+			{% for span in [8, 4, 4, 4, 4, 3, 6, 3, 12] %}
+				<div class="grid-docs__cell col-span-{{ span }}">{{ span }} / 12</div>
+			{% endfor %}
+		</div>
+		
+	</article>
+
+	<article class="grid-docs__example">
+		<h3 class="grid-docs__label text-sm">03 / Colonna iniziale</h3>
+		<p><code>.col-start-*</code> indica da quale colonna partire. Span e posizione si combinano sullo stesso elemento.</p>
+		<div class="grid-docs__ruler grid grid-cols-12 gap-xs" aria-hidden="true">
+			{% for column in 1..12 %}<span>{{ column }}</span>{% endfor %}
+		</div>
+		<div class="grid-docs__visual grid grid-cols-12 gap-xs">
+			<div class="grid-docs__cell col-start-3 col-span-8">start 3 / span 8</div>
+		</div>
+		<pre class="typography__code"><code>&lt;div class="col-start-3 col-span-8"&gt;…&lt;/div&gt;</code></pre>
+	</article>
+
+	<article class="grid-docs__example">
+		<h3 class="grid-docs__label text-sm">04 / Responsive</h3>
+		<p>Ridimensiona la finestra: una colonna di base, due da <code>md</code>, quattro da <code>lg</code>.</p>
+		<div class="grid-docs__visual grid grid-cols-1 grid-cols-md-2 grid-cols-lg-4 gap-sm">
+			{% for column in 1..4 %}<div class="grid-docs__cell">{{ column }}</div>{% endfor %}
+		</div>
+		<pre class="typography__code"><code>grid grid-cols-1 grid-cols-md-2 grid-cols-lg-4 gap-sm</code></pre>
+		<p class="text-xs">Mobile-first: sm ≥ 576px, md ≥ 768px, lg ≥ 1024px, xl ≥ 1280px, xxl ≥ 1440px.</p>
+		<p class="text-xs">La stessa sintassi vale per <code>col-span-md-6</code>, <code>col-start-lg-3</code> e <code>gap-lg-xl</code>. Ripristina il posizionamento automatico con <code>col-start-md-auto</code> e <code>col-span-md-auto</code>. Lo span deve rientrare nelle colonne disponibili a ogni breakpoint.</p>
+	</article>
+
+	<article class="grid-docs__example">
+		<h3 class="grid-docs__label text-sm">05 / Griglia automatica</h3>
+		<p>Le colonne si adattano allo spazio disponibile, senza breakpoint. Le larghezze minime sono <code>sm: 12rem</code>, <code>md: 16rem</code>, <code>lg: 20rem</code>; sullo schermo più stretto occupano il 100%.</p>
+		{% for size in ['sm', 'md', 'lg'] %}
+			<p class="text-xs"><code>grid-auto-{{ size }} gap-sm</code></p>
+			<div class="grid-docs__visual grid-auto-{{ size }} gap-sm">
+				{% for column in 1..4 %}<div class="grid-docs__cell">{{ column }}</div>{% endfor %}
+			</div>
+		{% endfor %}
+		<p class="text-xs"><code>.grid-auto-*</code> include display e gap md. Puoi cambiare il gap con <code>.gap-*</code> e la larghezza con varianti come <code>.grid-auto-lg-md</code>.</p>
+	</article>
+
+	<article class="grid-docs__example">
+		<h3 class="grid-docs__label text-sm">06 / Gap e Flexbox</h3>
+		<p>Da <code>.gap-xs</code> a <code>.gap-4xl</code>, oppure <code>.gap-0</code>. La stessa utility funziona anche con Flexbox.</p>
+		{% for size in ['xs', 'md', 'xl'] %}
+			<p class="text-xs"><code>grid grid-cols-3 gap-{{ size }}</code></p>
+			<div class="grid-docs__visual grid grid-cols-3 gap-{{ size }}">
+				{% for column in 1..3 %}<div class="grid-docs__cell">{{ column }}</div>{% endfor %}
+			</div>
+		{% endfor %}
+		<div class="grid-docs__visual flex flex-wrap align-center gap-sm">
+			<div class="grid-docs__cell">Flex</div>
+			<div class="grid-docs__cell">align-center</div>
+			<div class="grid-docs__cell">gap-sm</div>
+		</div>
+	</article>
+
+	<article class="grid-docs__example">
+		<h3 class="grid-docs__label text-sm">07 / Mixin Sass</h3>
+		<p>Le stesse regole nelle classi dei componenti. Questo esempio usa <code>auto-grid(250px, md)</code>.</p>
+		<div class="grid-docs__visual grid-docs__mixin">
+			{% for column in 1..4 %}<div class="grid-docs__cell">{{ column }}</div>{% endfor %}
+		</div>
+		<pre class="typography__code"><code>@use "../../scss/layout" as layout;
+
+.card-list {
+    @include layout.auto-grid(250px, md);
+}
+
+.content {
+    @include layout.grid(12, md);
+}
+
+.content__main {
+    @include layout.grid-span(8);
+    @include layout.grid-start(3);
+}</code></pre>
+		<p class="text-xs"><code>grid()</code> usa 12 colonne e gap md. Configurazione in <code>_settings.scss</code>, mixin e utility in <code>_layout.scss</code>. Per i contenitori: <code>.container</code> ha una larghezza massima, <code>.container-fluid</code> mantiene soltanto i margini laterali.</p>
+	</article>
+</section>

@@ -1,4 +1,4 @@
-@use "../../scss/utilities/text" as *;
+@use "../../scss/typography" as *;
 
 .documentation-section {
     border-top: 1px solid #ccc;
@@ -15,9 +15,15 @@
 .typography__examples {
     display: grid;
     gap: var(--space-sm);
+
+    p:not(.txt-example) {
+        margin-bottom: 0;
+        color:#f00;
+        font-weight: 700;
+    }
 }
 
-.typography__examples>div {
+.typography__examples>div:not(:last-child) {
     border-bottom: 1px solid #e5e5e5;
     padding-bottom: var(--space-sm);
 }
@@ -66,7 +72,12 @@
 .documentation-section {
   .typography__examples {
     [class*="text-"] {
-      font-weight: 700;
+    
     }
   }
+}
+
+.red {
+    color: #f00;
+    font-weight: 700;
 }

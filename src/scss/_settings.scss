@@ -1,0 +1,127 @@
+@use "sass:math";
+@use "sass:map";
+
+// Configurazione condivisa: funzioni fluide, token e breakpoint. Non genera CSS.
+
+$fluid-min-width: 320px;
+$fluid-max-width: 1200px;
+$root-font-size: 16px;
+
+@function strip-unit($value) {
+  @if math.is-unitless($value) {
+    @return $value;
+  }
+
+  @return math.div($value, $value * 0 + 1);
+}
+
+@function to-px($value) {
+  @if math.is-unitless($value) {
+    @error "to-px() richiede un valore con unità. Usa px o rem.";
+  }
+
+  $unit: math.unit($value);
+
+  @if $unit == "px" {
+    @return $value;
+  }
+
+  @if $unit == "rem" {
+    @return math.div($value, 1rem) * $root-font-size;
+  }
+
+  @error "Unità '#{$unit}' non supportata. Usa px o rem.";
+}
+
+@function fluid($min, $max) {
+  @if math.is-unitless($min) or math.is-unitless($max) {
+    @error "fluid() richiede valori con unità. Usa fluid-number() per valori unitless.";
+  }
+
+  // I calcoli vengono normalizzati in px, così fluid() accetta sia px sia rem.
+  $min-px: to-px($min);
+  $max-px: to-px($max);
+  $slope: math.div($max-px - $min-px, $fluid-max-width - $fluid-min-width);
+  $intercept: $min-px - $slope * $fluid-min-width;
+
+  @return clamp(#{$min-px},
+    calc(#{$intercept} + #{$slope * 100}vw),
+    #{$max-px});
+}
+
+@function fluid-number($min, $max) {
+  @return clamp(#{$min},
+    calc(#{$min} + (#{$max} - #{$min}) * ((100vw - #{$fluid-min-width}) / (#{$fluid-max-width} - #{$fluid-min-width}))),
+    #{$max});
+}
+
+/* layout */
+$container-max-width: 1200px;
+$container-padding: 1rem;
+$grid-columns: 12;
+$grid-auto-widths: (
+  sm: 12rem,
+  md: 16rem,
+  lg: 20rem
+);
+
+/* breakpoints */
+$breakpoints: (
+  sm: 576px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1280px,
+  xxl: 1440px
+);
+
+/* colors */
+$white: #fff;
+$black: #000;
+$grey: #ccc;
+
+/* typography */
+$font-family-base: "Lato", sans-serif;
+$font-size: (
+  xs:  fluid(12px, 14px),
+  sm:  fluid(14px, 16px),
+  md:  fluid(16px, 20px),
+  lg:  fluid(18px, 24px),
+  xl:  fluid(24px, 36px),
+  2xl: fluid(32px, 48px),
+  3xl: fluid(40px, 72px),
+  4xl: fluid(48px, 96px)
+);
+$line-heights: (
+  xs:  (min: 1.25, max: 1.35),
+  sm:  (min: 1.35, max: 1.45),
+  md:  (min: 1.4, max: 1.5),
+  lg:  (min: 1.45, max: 1.55),
+  xl:  (min: 1.2, max: 1.3),
+  2xl: (min: 1.15, max: 1.2),
+  3xl: (min: 1.05, max: 1.15),
+  4xl: (min: 1, max: 1.1)
+);
+
+/* spaces */
+$spaces: (
+  xs: fluid(4px, 6px),
+  sm: fluid(8px, 12px),
+  md: fluid(12px, 16px),
+  lg: fluid(16px, 24px),
+  xl: fluid(24px, 40px),
+  2xl: fluid(40px, 64px),
+  3xl: fluid(64px, 104px),
+  4xl: fluid(104px, 160px)
+);
+
+/* breakpoints */
+
+@mixin media($breakpoint) {
+  @if map.has-key($breakpoints, $breakpoint) {
+    @media (max-width: map.get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  } @else {
+    @error "Breakpoint '#{$breakpoint}' non trovato.";
+  }
+}

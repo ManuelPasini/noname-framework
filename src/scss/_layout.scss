@@ -1,0 +1,103 @@
+@use "sass:map";
+@use "sass:math";
+@use "settings" as *;
+
+// API Sass: le utility e i componenti condividono le stesse regole.
+@mixin grid-columns($columns) {
+  @if not math.is-unitless($columns) or $columns < 1 or $columns > $grid-columns or math.floor($columns) != $columns {
+    @error "Il numero di colonne deve essere un intero tra 1 e #{$grid-columns}.";
+  }
+  grid-template-columns: repeat($columns, minmax(0, 1fr));
+}
+
+@mixin gap($size: md) {
+  @if not map.has-key($spaces, $size) {
+    @error "Spaziatura '#{$size}' non trovata.";
+  }
+  gap: var(--space-#{$size});
+}
+
+@mixin grid($columns: $grid-columns, $gap: md) {
+  display: grid;
+  @include grid-columns($columns);
+  @include gap($gap);
+}
+
+@mixin grid-span($columns) {
+  @if not math.is-unitless($columns) or $columns < 1 or $columns > $grid-columns or math.floor($columns) != $columns {
+    @error "Lo span deve essere un intero tra 1 e #{$grid-columns}.";
+  }
+  // Non sovrascrive un eventuale col-start, anche tra breakpoint diversi.
+  grid-column-end: span $columns;
+}
+
+@mixin grid-start($column) {
+  @if not math.is-unitless($column) or $column < 1 or $column > $grid-columns or math.floor($column) != $column {
+    @error "La colonna iniziale deve essere un intero tra 1 e #{$grid-columns}.";
+  }
+  grid-column-start: $column;
+}
+
+@mixin auto-grid($min-width: 16rem, $gap: md) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min($min-width, 100%), 1fr));
+  @include gap($gap);
+}
+
+// Generatore condiviso per classi base e varianti mobile-first.
+@mixin grid-utilities($suffix: "") {
+  @for $column from 1 through $grid-columns {
+    .grid-cols#{$suffix}-#{$column} { @include grid-columns($column); }
+    .col-span#{$suffix}-#{$column} { @include grid-span($column); }
+    .col-start#{$suffix}-#{$column} { @include grid-start($column); }
+  }
+
+  .col-span#{$suffix}-auto { grid-column-end: auto; }
+  .col-start#{$suffix}-auto { grid-column-start: auto; }
+
+  @each $name, $width in $grid-auto-widths {
+    .grid-auto#{$suffix}-#{$name} { @include auto-grid($width); }
+  }
+
+  // Dopo auto-grid per consentire di personalizzarne il gap.
+  @each $name, $value in $spaces {
+    .gap#{$suffix}-#{$name} { @include gap($name); }
+  }
+  .gap#{$suffix}-0 { gap: 0; }
+}
+
+// Struttura della pagina e contenitore principale.
+
+.container {
+    width: calc(100% - #{2 * $container-padding});
+    max-width: $container-max-width;
+    margin-inline: auto;
+    margin-top: var(--space-md);
+    margin-bottom: var(--space-md);
+}
+
+.container-fluid {
+    width: calc(100% - #{2 * $container-padding});
+    margin-inline: auto;
+}
+
+// .grid definisce solo il display: colonne e gap restano componibili.
+.grid { display: grid; }
+
+@include grid-utilities();
+
+// Soglie min-width; il mixin media() esistente mantiene il suo max-width.
+@each $name, $width in $breakpoints {
+  @media (min-width: $width) {
+    @include grid-utilities("-#{$name}");
+  }
+}
+
+.site-header {
+    margin-bottom: var(--space-md);
+
+}
+
+main {
+    margin-bottom: var(--space-md);
+}

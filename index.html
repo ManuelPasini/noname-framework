@@ -24,9 +24,6 @@
 </head>
 
 	<body>
-		<div id="loader" aria-hidden="true">
-			<div class="load"></div>
-		</div>
 
 		<div class="container">
 			<header class="site-header" data-gsap="reveal">
@@ -35,10 +32,10 @@
 				</p>
 				<h1>NoName Framework</h1>
 				<p>
-					Base frontend modulare per siti, landing page, applicazioni e interfacce.
+					Base frontend modulare e fluido.
 				</p>
-				<p class="typography__note text-xs">
-					Scala globale:
+				<p class="typography__note text-lg">
+					Scala globale: <span class="red">
 					<code>xs</code>,
 					<code>sm</code>,
 					<code>md</code>,
@@ -46,7 +43,7 @@
 					<code>xl</code>,
 					<code>2xl</code>,
 					<code>3xl</code>,
-					<code>4xl</code>.
+					<code>4xl</code></span>.
 				</p>
 			</header>
 
@@ -74,58 +71,54 @@
 		</p>
 		<pre class="typography__code"><code>@include text(md, $weight: 700);</code></pre>
 
-    <p> Utility class: <code>.{text}[-{xs|sm|md|lg|xl|2xl|3xl|4xl}]</code> </p>
+    <p> Utility class: <code>.text-{xs|sm|md|lg|xl|2xl|3xl|4xl}</code> </p>
+	<p> Utility class: <code>.weight-{100|200|300|400|500|600|700|800|900}</code> </p>
 
 	</div>
 
 	<div class="typography__examples">
 		<div>
-			<code>.text-4xl</code>
-			<div class="text-4xl">Example text</div>
+			<p class="text-xs">.text-4xl .weight-700</p>
+			<div class="text-4xl weight-700">Example text</div>
 		</div>
 
 		<div>
-			<code>.text-3xl</code>
-			<div class="text-3xl">Example text</div>
+			<p class="text-xs">.text-3xl .weight-700</p>
+			<div class="text-3xl weight-700">Example text</div>
 		</div>
 
 		<div>
-			<code>.text-2xl</code>
-			<div class="text-2xl">Example text</div>
+			<p class="text-xs">.text-2xl .weight-700</p>
+			<div class="text-2xl weight-700">Example text</div>
 		</div>
 
 		<div>
-			<code>.text-xl</code>
-			<div class="text-xl">Example text</div>
+			<p class="text-xs">.text-xl .weight-700</p>
+			<div class="text-xl weight-700">Example text</div>
 		</div>
 
 		<div>
-			<code>.text-lg</code>
-			<div class="text-lg">Example text</div>
+			<p class="text-xs">.text-lg .weight-700</p>
+			<div class="text-lg weight-700">Example text</div>
 		</div>
 
 		<div>
-			<code>.text-md</code>
-			<div class="text-md">Example text</div>
+			<p class="text-xs">.text-md p</p>
+			<div class="text-md">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
 		</div>
 
 		<div>
-			<code>.text-sm</code>
-			<div class="text-sm">Example text</div>
+			<p class="text-xs">.text-sm</p>
+			<div class="text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
 		</div>
 
 		<div>
-			<code>.text-xs</code>
-			<div class="text-xs">Example text</div>
+			<p class="text-xs">.text-xs</p>
+			<div class="text-xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Example text</div>
 		</div>
 
 		<div>
-			<code>p</code>
-			<p>Un paragrafo usa la dimensione e l’interlinea fluide predefinite.</p>
-		</div>
-
-		<div>
-			<code>ul</code>
+			<p class="text-xs">ul</p>
 			<ul>
 				<li>Elemento di lista</li>
 				<li>Elemento di lista</li>
@@ -151,7 +144,6 @@
 	<div class="spaces__examples">
 					<article class="spaces__example">
 				<div class="spaces__meta">
-					<code>.padding-bottom-xs</code>
 					<span class="text-xs">var(--space-xs)</span>
 				</div>
 				<div class="spaces__visual padding-bottom-xs">
@@ -160,7 +152,6 @@
 			</article>
 					<article class="spaces__example">
 				<div class="spaces__meta">
-					<code>.padding-bottom-sm</code>
 					<span class="text-xs">var(--space-sm)</span>
 				</div>
 				<div class="spaces__visual padding-bottom-sm">
@@ -169,7 +160,6 @@
 			</article>
 					<article class="spaces__example">
 				<div class="spaces__meta">
-					<code>.padding-bottom-md</code>
 					<span class="text-xs">var(--space-md)</span>
 				</div>
 				<div class="spaces__visual padding-bottom-md">
@@ -178,7 +168,6 @@
 			</article>
 					<article class="spaces__example">
 				<div class="spaces__meta">
-					<code>.padding-bottom-lg</code>
 					<span class="text-xs">var(--space-lg)</span>
 				</div>
 				<div class="spaces__visual padding-bottom-lg">
@@ -187,7 +176,6 @@
 			</article>
 					<article class="spaces__example">
 				<div class="spaces__meta">
-					<code>.padding-bottom-xl</code>
 					<span class="text-xs">var(--space-xl)</span>
 				</div>
 				<div class="spaces__visual padding-bottom-xl">
@@ -196,7 +184,6 @@
 			</article>
 					<article class="spaces__example">
 				<div class="spaces__meta">
-					<code>.padding-bottom-2xl</code>
 					<span class="text-xs">var(--space-2xl)</span>
 				</div>
 				<div class="spaces__visual padding-bottom-2xl">
@@ -205,7 +192,6 @@
 			</article>
 					<article class="spaces__example">
 				<div class="spaces__meta">
-					<code>.padding-bottom-3xl</code>
 					<span class="text-xs">var(--space-3xl)</span>
 				</div>
 				<div class="spaces__visual padding-bottom-3xl">
@@ -214,7 +200,6 @@
 			</article>
 					<article class="spaces__example">
 				<div class="spaces__meta">
-					<code>.padding-bottom-4xl</code>
 					<span class="text-xs">var(--space-4xl)</span>
 				</div>
 				<div class="spaces__visual padding-bottom-4xl">
@@ -223,69 +208,165 @@
 			</article>
 			</div>
 </section>
-				<section class="documentation-section gallery" aria-labelledby="documentation-gallery-title" data-gsap="reveal">
-  <div class="documentation-section__intro">
-    <p class="text-xs">Componente</p>
-    <h2 id="documentation-gallery-title">Gallery</h2>
-    <p>
-      Gallery riutilizzabile basata su Swiper. Riceve un identificatore, immagini
-      e opzioni di visualizzazione.
-    </p>
-    <p class="text-xs">
-      <code>images: [{ src, alt }]</code> ·
-      <code>slidesDesktop: 4</code>
-    </p>
-  </div>
+				<section class="documentation-section grid-docs" aria-labelledby="grid-title" data-gsap="reveal">
+	<div class="documentation-section__intro">
+		<h2 id="grid-title">Grid</h2>
+		<p>Colonne, span e spaziature componibili. CSS Grid per righe e colonne, Flexbox per allineare gli elementi lungo una direzione.</p>
+		<pre class="typography__code"><code>grid grid-cols-12 gap-md</code></pre>
+		<p><code>.grid</code> attiva la griglia; <code>.grid-cols-1</code> … <code>.grid-cols-12</code> definiscono le colonne. Il gap usa la stessa scala fluida di Spacing.</p>
+	</div>
 
-  <div
-    class="gallery__viewport swiper"
-    id="documentation-gallery"
-    data-gallery
-    data-slides-desktop="4"
-    aria-label="Esempio gallery"
-  >
-    <div class="swiper-wrapper">
-              <div class="swiper-slide">
-          <img src="/images/gallery-91.jpg" alt="Esempio immagine gallery 91" loading="lazy"/>
-        </div>
-              <div class="swiper-slide">
-          <img src="/images/gallery-92.jpg" alt="Esempio immagine gallery 92" loading="lazy"/>
-        </div>
-              <div class="swiper-slide">
-          <img src="/images/gallery-93.jpg" alt="Esempio immagine gallery 93" loading="lazy"/>
-        </div>
-              <div class="swiper-slide">
-          <img src="/images/gallery-94.jpg" alt="Esempio immagine gallery 94" loading="lazy"/>
-        </div>
-              <div class="swiper-slide">
-          <img src="/images/gallery-95.jpg" alt="Esempio immagine gallery 95" loading="lazy"/>
-        </div>
-              <div class="swiper-slide">
-          <img src="/images/gallery-96.jpg" alt="Esempio immagine gallery 96" loading="lazy"/>
-        </div>
-              <div class="swiper-slide">
-          <img src="/images/gallery-97.jpg" alt="Esempio immagine gallery 97" loading="lazy"/>
-        </div>
-              <div class="swiper-slide">
-          <img src="/images/gallery-98.jpg" alt="Esempio immagine gallery 98" loading="lazy"/>
-        </div>
-              <div class="swiper-slide">
-          <img src="/images/gallery-99.jpg" alt="Esempio immagine gallery 99" loading="lazy"/>
-        </div>
-          </div>
+	<article class="grid-docs__example">
+		<h3 class="grid-docs__label text-sm">01 / Colonne uguali</h3>
+					<p class="text-xs"><code>grid grid-cols-1 gap-xs</code></p>
+			<div class="grid-docs__visual grid grid-cols-1 gap-xs">
+									<div class="grid-docs__cell">1</div>
+							</div>
+					<p class="text-xs"><code>grid grid-cols-2 gap-xs</code></p>
+			<div class="grid-docs__visual grid grid-cols-2 gap-xs">
+									<div class="grid-docs__cell">1</div>
+									<div class="grid-docs__cell">2</div>
+							</div>
+					<p class="text-xs"><code>grid grid-cols-3 gap-xs</code></p>
+			<div class="grid-docs__visual grid grid-cols-3 gap-xs">
+									<div class="grid-docs__cell">1</div>
+									<div class="grid-docs__cell">2</div>
+									<div class="grid-docs__cell">3</div>
+							</div>
+					<p class="text-xs"><code>grid grid-cols-4 gap-xs</code></p>
+			<div class="grid-docs__visual grid grid-cols-4 gap-xs">
+									<div class="grid-docs__cell">1</div>
+									<div class="grid-docs__cell">2</div>
+									<div class="grid-docs__cell">3</div>
+									<div class="grid-docs__cell">4</div>
+							</div>
+					<p class="text-xs"><code>grid grid-cols-6 gap-xs</code></p>
+			<div class="grid-docs__visual grid grid-cols-6 gap-xs">
+									<div class="grid-docs__cell">1</div>
+									<div class="grid-docs__cell">2</div>
+									<div class="grid-docs__cell">3</div>
+									<div class="grid-docs__cell">4</div>
+									<div class="grid-docs__cell">5</div>
+									<div class="grid-docs__cell">6</div>
+							</div>
+					<p class="text-xs"><code>grid grid-cols-12 gap-xs</code></p>
+			<div class="grid-docs__visual grid grid-cols-12 gap-xs">
+									<div class="grid-docs__cell">1</div>
+									<div class="grid-docs__cell">2</div>
+									<div class="grid-docs__cell">3</div>
+									<div class="grid-docs__cell">4</div>
+									<div class="grid-docs__cell">5</div>
+									<div class="grid-docs__cell">6</div>
+									<div class="grid-docs__cell">7</div>
+									<div class="grid-docs__cell">8</div>
+									<div class="grid-docs__cell">9</div>
+									<div class="grid-docs__cell">10</div>
+									<div class="grid-docs__cell">11</div>
+									<div class="grid-docs__cell">12</div>
+							</div>
+			</article>
 
-    <button
-      class="swiper-button-prev"
-      type="button"
-      aria-label="Immagine precedente"
-    ></button>
-    <button
-      class="swiper-button-next"
-      type="button"
-      aria-label="Immagine successiva"
-    ></button>
-  </div>
+	<article class="grid-docs__example">
+		<h3 class="grid-docs__label text-sm">02 / Span e righe</h3>
+		<p>Ogni elemento occupa una parte delle 12 colonne. Quando la riga è piena, il successivo passa alla riga seguente.</p>
+		<pre class="typography__code"><code>&lt;div class="grid grid-cols-12 gap-xs"&gt;
+    &lt;div class="col-span-8"&gt;8 / 12&lt;/div&gt;
+    &lt;div class="col-span-4"&gt;4 / 12&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+		<div class="grid-docs__ruler grid grid-cols-12 gap-xs" aria-hidden="true">
+			<span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span>		</div>
+		<div class="grid-docs__visual grid grid-cols-12 gap-xs">
+							<div class="grid-docs__cell col-span-8">8 / 12</div>
+							<div class="grid-docs__cell col-span-4">4 / 12</div>
+							<div class="grid-docs__cell col-span-4">4 / 12</div>
+							<div class="grid-docs__cell col-span-4">4 / 12</div>
+							<div class="grid-docs__cell col-span-4">4 / 12</div>
+							<div class="grid-docs__cell col-span-3">3 / 12</div>
+							<div class="grid-docs__cell col-span-6">6 / 12</div>
+							<div class="grid-docs__cell col-span-3">3 / 12</div>
+							<div class="grid-docs__cell col-span-12">12 / 12</div>
+					</div>
+		
+	</article>
+
+	<article class="grid-docs__example">
+		<h3 class="grid-docs__label text-sm">03 / Colonna iniziale</h3>
+		<p><code>.col-start-*</code> indica da quale colonna partire. Span e posizione si combinano sullo stesso elemento.</p>
+		<div class="grid-docs__ruler grid grid-cols-12 gap-xs" aria-hidden="true">
+			<span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span>		</div>
+		<div class="grid-docs__visual grid grid-cols-12 gap-xs">
+			<div class="grid-docs__cell col-start-3 col-span-8">start 3 / span 8</div>
+		</div>
+		<pre class="typography__code"><code>&lt;div class="col-start-3 col-span-8"&gt;…&lt;/div&gt;</code></pre>
+	</article>
+
+	<article class="grid-docs__example">
+		<h3 class="grid-docs__label text-sm">04 / Responsive</h3>
+		<p>Ridimensiona la finestra: una colonna di base, due da <code>md</code>, quattro da <code>lg</code>.</p>
+		<div class="grid-docs__visual grid grid-cols-1 grid-cols-md-2 grid-cols-lg-4 gap-sm">
+			<div class="grid-docs__cell">1</div><div class="grid-docs__cell">2</div><div class="grid-docs__cell">3</div><div class="grid-docs__cell">4</div>		</div>
+		<pre class="typography__code"><code>grid grid-cols-1 grid-cols-md-2 grid-cols-lg-4 gap-sm</code></pre>
+		<p class="text-xs">Mobile-first: sm ≥ 576px, md ≥ 768px, lg ≥ 1024px, xl ≥ 1280px, xxl ≥ 1440px.</p>
+		<p class="text-xs">La stessa sintassi vale per <code>col-span-md-6</code>, <code>col-start-lg-3</code> e <code>gap-lg-xl</code>. Ripristina il posizionamento automatico con <code>col-start-md-auto</code> e <code>col-span-md-auto</code>. Lo span deve rientrare nelle colonne disponibili a ogni breakpoint.</p>
+	</article>
+
+	<article class="grid-docs__example">
+		<h3 class="grid-docs__label text-sm">05 / Griglia automatica</h3>
+		<p>Le colonne si adattano allo spazio disponibile, senza breakpoint. Le larghezze minime sono <code>sm: 12rem</code>, <code>md: 16rem</code>, <code>lg: 20rem</code>; sullo schermo più stretto occupano il 100%.</p>
+					<p class="text-xs"><code>grid-auto-sm gap-sm</code></p>
+			<div class="grid-docs__visual grid-auto-sm gap-sm">
+				<div class="grid-docs__cell">1</div><div class="grid-docs__cell">2</div><div class="grid-docs__cell">3</div><div class="grid-docs__cell">4</div>			</div>
+					<p class="text-xs"><code>grid-auto-md gap-sm</code></p>
+			<div class="grid-docs__visual grid-auto-md gap-sm">
+				<div class="grid-docs__cell">1</div><div class="grid-docs__cell">2</div><div class="grid-docs__cell">3</div><div class="grid-docs__cell">4</div>			</div>
+					<p class="text-xs"><code>grid-auto-lg gap-sm</code></p>
+			<div class="grid-docs__visual grid-auto-lg gap-sm">
+				<div class="grid-docs__cell">1</div><div class="grid-docs__cell">2</div><div class="grid-docs__cell">3</div><div class="grid-docs__cell">4</div>			</div>
+				<p class="text-xs"><code>.grid-auto-*</code> include display e gap md. Puoi cambiare il gap con <code>.gap-*</code> e la larghezza con varianti come <code>.grid-auto-lg-md</code>.</p>
+	</article>
+
+	<article class="grid-docs__example">
+		<h3 class="grid-docs__label text-sm">06 / Gap e Flexbox</h3>
+		<p>Da <code>.gap-xs</code> a <code>.gap-4xl</code>, oppure <code>.gap-0</code>. La stessa utility funziona anche con Flexbox.</p>
+					<p class="text-xs"><code>grid grid-cols-3 gap-xs</code></p>
+			<div class="grid-docs__visual grid grid-cols-3 gap-xs">
+				<div class="grid-docs__cell">1</div><div class="grid-docs__cell">2</div><div class="grid-docs__cell">3</div>			</div>
+					<p class="text-xs"><code>grid grid-cols-3 gap-md</code></p>
+			<div class="grid-docs__visual grid grid-cols-3 gap-md">
+				<div class="grid-docs__cell">1</div><div class="grid-docs__cell">2</div><div class="grid-docs__cell">3</div>			</div>
+					<p class="text-xs"><code>grid grid-cols-3 gap-xl</code></p>
+			<div class="grid-docs__visual grid grid-cols-3 gap-xl">
+				<div class="grid-docs__cell">1</div><div class="grid-docs__cell">2</div><div class="grid-docs__cell">3</div>			</div>
+				<div class="grid-docs__visual flex flex-wrap align-center gap-sm">
+			<div class="grid-docs__cell">Flex</div>
+			<div class="grid-docs__cell">align-center</div>
+			<div class="grid-docs__cell">gap-sm</div>
+		</div>
+	</article>
+
+	<article class="grid-docs__example">
+		<h3 class="grid-docs__label text-sm">07 / Mixin Sass</h3>
+		<p>Le stesse regole nelle classi dei componenti. Questo esempio usa <code>auto-grid(250px, md)</code>.</p>
+		<div class="grid-docs__visual grid-docs__mixin">
+			<div class="grid-docs__cell">1</div><div class="grid-docs__cell">2</div><div class="grid-docs__cell">3</div><div class="grid-docs__cell">4</div>		</div>
+		<pre class="typography__code"><code>@use "../../scss/layout" as layout;
+
+.card-list {
+    @include layout.auto-grid(250px, md);
+}
+
+.content {
+    @include layout.grid(12, md);
+}
+
+.content__main {
+    @include layout.grid-span(8);
+    @include layout.grid-start(3);
+}</code></pre>
+		<p class="text-xs"><code>grid()</code> usa 12 colonne e gap md. Configurazione in <code>_settings.scss</code>, mixin e utility in <code>_layout.scss</code>. Per i contenitori: <code>.container</code> ha una larghezza massima, <code>.container-fluid</code> mantiene soltanto i margini laterali.</p>
+	</article>
 </section>
+				
 			</main>
 
 			<footer class="site-footer">

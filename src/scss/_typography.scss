@@ -1,6 +1,8 @@
 @use "sass:map";
 @use "sass:math";
-@use "../abstracts/tokens" as *;
+@use "settings" as *;
+
+// Mixin e classi per dimensioni del testo e interlinea.
 
 @mixin line-height($name) {
   $values: map.get($line-heights, $name);
@@ -41,4 +43,64 @@
   .text-#{$name} {
     @include text($name);
   }
+}
+
+$font-weights: 100, 200, 300, 400, 500, 600, 700, 800, 900;
+
+@each $weight in $font-weights {
+    .weight-#{$weight} {
+        font-weight: $weight;
+    }
+}
+
+// Stili tipografici degli elementi HTML.
+
+body {
+    font-family: $font-family-base;
+    font-weight: 300;
+}
+
+a {
+  color:$black;
+  text-decoration: underline;
+}
+
+body {
+  font-family: $font-family-base;
+  @include text(md, md);
+}
+
+h1 {
+   @extend .text-4xl;
+}
+
+h2 {
+  @extend .text-3xl;
+  color: #f00;
+  margin-bottom: var(--space-md);
+}
+
+h3 {
+  @extend .text-2xl;
+}
+
+h4 {
+  @extend .text-xl;
+}
+
+h5 {
+  @extend .text-lg;
+}
+
+h6 {
+  @extend .text-md;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+}
+
+
+p, ul {
+  @include text(md, sm);
 }
