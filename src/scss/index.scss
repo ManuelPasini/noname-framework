@@ -1,6 +1,7 @@
 // Stili condivisi: ordine di caricamento della cascata.
 @use "./global";
 @use "./typography";
+@use "./media";
 @use "./utilities";
 @use "./layout";
 
@@ -8,6 +9,7 @@
 @use "../components/typography/typography" as typography-docs;
 @use "../components/spaces/spaces";
 @use "../components/grid/grid" as grid-docs;
+@use "../components/images/images" as images-docs;
 @use "../components/gallery/gallery";
 @use "../components/head/head";
 @use "../components/footer/footer";

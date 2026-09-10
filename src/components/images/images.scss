@@ -1,0 +1,30 @@
+@use "../../scss/media" as images;
+
+.images__example {
+  padding-block: var(--space-md);
+  border-bottom: 1px solid #e5e5e5;
+
+  &:last-child { border-bottom: 0; }
+}
+
+.images__label {
+  color: #f00;
+  font-weight: 700;
+  margin-bottom: var(--space-xs);
+}
+
+.images__visual {
+  margin-bottom: var(--space-sm);
+  background: #f8f9fa;
+  outline: 1px solid #e5e5e5;
+}
+
+.images__mixin {
+  @include images.media();
+  @include images.ratio(5, 2);
+
+  img {
+    @include images.object-fit(cover);
+    @include images.object-position(top);
+  }
+}

@@ -1,4 +1,5 @@
 @use "settings" as *;
+@use "media" as images;
 
 // Classi di utilit? per composizione, aspetto e accessibilit?.
 // Le utility del testo sono in typography.
@@ -309,24 +310,12 @@
 // OBJECT
 // ============================================
 
-.object-cover {
-  object-fit: cover;
+@each $fit in cover, contain, fill, none {
+  .object-#{$fit} { @include images.object-fit($fit); }
 }
 
-.object-contain {
-  object-fit: contain;
-}
-
-.object-fill {
-  object-fit: fill;
-}
-
-.object-none {
-  object-fit: none;
-}
-
-.object-center {
-  object-position: center;
+@each $position in center, top, bottom, left, right {
+  .object-#{$position} { @include images.object-position($position); }
 }
 
 
@@ -389,15 +378,15 @@
 // ============================================
 
 .ratio-square {
-  aspect-ratio: 1 / 1;
+  @include images.ratio(1, 1);
 }
 
 .ratio-video {
-  aspect-ratio: 16 / 9;
+  @include images.ratio(16, 9);
 }
 
 .ratio-wide {
-  aspect-ratio: 21 / 9;
+  @include images.ratio(21, 9);
 }
 
 

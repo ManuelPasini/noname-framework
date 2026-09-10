@@ -366,6 +366,130 @@
 		<p class="text-xs"><code>grid()</code> usa 12 colonne e gap md. Configurazione in <code>_settings.scss</code>, mixin e utility in <code>_layout.scss</code>. Per i contenitori: <code>.container</code> ha una larghezza massima, <code>.container-fluid</code> mantiene soltanto i margini laterali.</p>
 	</article>
 </section>
+				﻿<section class="documentation-section images" aria-labelledby="images-title" data-gsap="reveal">
+	<div class="documentation-section__intro">
+		<h2 id="images-title">Images</h2>
+		<p>Immagini responsive, rapporti dimensionali e ritaglio con HTML e CSS nativi. Il contenitore <code>.media</code> accetta direttamente un img oppure un picture e usa <code>aspect-ratio</code>.</p>
+		<pre class="typography__code"><code>media ratio-16-9</code></pre>
+		<p>Applica le utility ratio al contenitore e object-fit / object-position all'immagine. Il fit predefinito di media è cover; senza ratio conserva le proporzioni naturali.</p>
+	</div>
+
+	<article class="images__example">
+		<h3 class="images__label text-sm">01 / Immagine libera</h3>
+		<div class="images__visual media"><img src="/images/gallery-91.jpg" alt="Esempio fotografico dalla gallery" loading="lazy"></div>
+		<pre class="typography__code"><code>&lt;div class="media"&gt;
+    &lt;img src="/images/gallery-91.jpg" alt="Esempio fotografico dalla gallery" loading="lazy"&gt;
+&lt;/div&gt;</code></pre>
+		<p class="text-xs">Per un img senza contenitore rimane disponibile <code>.img-block</code>. Gli esempi sotto la prima schermata usano loading="lazy": omettilo sulle immagini above-the-fold, comprese quelle hero.</p>
+	</article>
+
+	<article class="images__example">
+		<h3 class="images__label text-sm">02 / Aspect ratio</h3>
+		<div class="grid grid-cols-1 grid-cols-md-3 gap-md">
+							<div>
+					<p class="text-xs"><code>ratio-1-1</code></p>
+					<div class="images__visual media ratio-1-1"><img src="/images/gallery-91.jpg" alt="Esempio fotografico con rapporto 1-1" loading="lazy"></div>
+					<pre class="typography__code"><code>&lt;div class="media ratio-1-1"&gt;
+    &lt;img src="/images/gallery-91.jpg" alt="Esempio fotografico" loading="lazy"&gt;
+&lt;/div&gt;</code></pre>
+				</div>
+							<div>
+					<p class="text-xs"><code>ratio-4-3</code></p>
+					<div class="images__visual media ratio-4-3"><img src="/images/gallery-91.jpg" alt="Esempio fotografico con rapporto 4-3" loading="lazy"></div>
+					<pre class="typography__code"><code>&lt;div class="media ratio-4-3"&gt;
+    &lt;img src="/images/gallery-91.jpg" alt="Esempio fotografico" loading="lazy"&gt;
+&lt;/div&gt;</code></pre>
+				</div>
+							<div>
+					<p class="text-xs"><code>ratio-16-9</code></p>
+					<div class="images__visual media ratio-16-9"><img src="/images/gallery-91.jpg" alt="Esempio fotografico con rapporto 16-9" loading="lazy"></div>
+					<pre class="typography__code"><code>&lt;div class="media ratio-16-9"&gt;
+    &lt;img src="/images/gallery-91.jpg" alt="Esempio fotografico" loading="lazy"&gt;
+&lt;/div&gt;</code></pre>
+				</div>
+					</div>
+		<pre class="typography__code"><code>ratio-1-1 ratio-4-3 ratio-3-2 ratio-16-9
+ratio-21-9 ratio-4-5 ratio-3-4 ratio-9-16</code></pre>
+		<p class="text-xs">Token in <code>$media-ratios</code>, in _settings.scss. Restano disponibili gli alias <code>ratio-square</code>, <code>ratio-video</code> e <code>ratio-wide</code>.</p>
+	</article>
+
+	<article class="images__example">
+		<h3 class="images__label text-sm">03 / Object fit e posizione</h3>
+		<div class="grid grid-cols-1 grid-cols-md-3 gap-md">
+							<div>
+					<p class="text-xs"><code>object-cover</code></p>
+					<div class="images__visual media ratio-1-1"><img class="object-cover" src="/images/gallery-91.jpg" alt="Confronto del ritaglio della stessa fotografia" loading="lazy"></div>
+					<pre class="typography__code"><code>&lt;div class="media ratio-1-1"&gt;
+    &lt;img class="object-cover" src="/images/gallery-91.jpg" alt="Esempio fotografico" loading="lazy"&gt;
+&lt;/div&gt;</code></pre>
+				</div>
+							<div>
+					<p class="text-xs"><code>object-contain</code></p>
+					<div class="images__visual media ratio-1-1"><img class="object-contain" src="/images/gallery-91.jpg" alt="Confronto del ritaglio della stessa fotografia" loading="lazy"></div>
+					<pre class="typography__code"><code>&lt;div class="media ratio-1-1"&gt;
+    &lt;img class="object-contain" src="/images/gallery-91.jpg" alt="Esempio fotografico" loading="lazy"&gt;
+&lt;/div&gt;</code></pre>
+				</div>
+							<div>
+					<p class="text-xs"><code>object-cover object-top</code></p>
+					<div class="images__visual media ratio-1-1"><img class="object-cover object-top" src="/images/gallery-91.jpg" alt="Confronto del ritaglio della stessa fotografia" loading="lazy"></div>
+					<pre class="typography__code"><code>&lt;div class="media ratio-1-1"&gt;
+    &lt;img class="object-cover object-top" src="/images/gallery-91.jpg" alt="Esempio fotografico" loading="lazy"&gt;
+&lt;/div&gt;</code></pre>
+				</div>
+					</div>
+		<p>Cover riempie il riquadro ritagliando l'immagine; contain mostra tutta l'immagine lasciando spazio libero. La posizione controlla l'allineamento nel riquadro.</p>
+		<pre class="typography__code"><code>object-cover object-contain
+object-center object-top object-bottom object-left object-right</code></pre>
+		<p class="text-xs">Le utility esistenti <code>object-fill</code> e <code>object-none</code> rimangono disponibili.</p>
+	</article>
+
+	<article class="images__example">
+		<h3 class="images__label text-sm">04 / Ratio responsive</h3>
+		<p>4:5 su mobile, 16:9 da md (768px), come le utility Grid. Ridimensiona la finestra per confrontarli.</p>
+		<div class="images__visual media ratio-4-5 ratio-md-16-9"><img src="/images/gallery-91.jpg" alt="Fotografia con proporzioni diverse su mobile e desktop" loading="lazy"></div>
+		<pre class="typography__code"><code>&lt;div class="media ratio-4-5 ratio-md-16-9"&gt;
+    &lt;img src="/images/gallery-91.jpg" alt="Esempio fotografico" loading="lazy"&gt;
+&lt;/div&gt;</code></pre>
+		<p class="text-xs">Sintassi <code>ratio-{breakpoint}-{rapporto}</code>: sm ≥ 576px, md ≥ 768px, lg ≥ 1024px, xl ≥ 1280px, xxl ≥ 1440px. Le soglie provengono da <code>$breakpoints</code>.</p>
+	</article>
+
+	<article class="images__example">
+		<h3 class="images__label text-sm">05 / Sorgenti desktop e mobile</h3>
+		<p>Il browser sceglie la sorgente tramite picture e source, senza JavaScript. La query mobile <code>(width &lt; 768px)</code> è il complemento esatto della soglia md (min-width: 768px) definita in _settings.scss.</p>
+		<div class="images__visual media ratio-4-5 ratio-md-16-9">
+			<picture>
+				<source media="(width < 768px)" srcset="/images/gallery-92.jpg">
+				<img src="/images/gallery-91.jpg" alt="Selezione fotografica dalla gallery" loading="lazy">
+			</picture>
+		</div>
+		<pre class="typography__code"><code>&lt;div class="media ratio-4-5 ratio-md-16-9"&gt;
+    &lt;picture&gt;
+        &lt;source media="(width &lt; 768px)" srcset="/images/gallery-92.jpg"&gt;
+        &lt;img src="/images/gallery-91.jpg" alt="Selezione fotografica dalla gallery" loading="lazy"&gt;
+    &lt;/picture&gt;
+&lt;/div&gt;</code></pre>
+		<p class="text-xs">Il cambio sorgente e il cambio rapporto sono indipendenti. Descrivi il contenuto con alt; per immagini puramente decorative usa alt="".</p>
+	</article>
+
+	<article class="images__example">
+		<h3 class="images__label text-sm">06 / Mixin Sass</h3>
+		<p>Stessa API nelle classi semantiche: questo esempio usa un rapporto personalizzato 5:2, anche se assente dalla mappa.</p>
+		<div class="images__visual images__mixin"><img src="/images/gallery-91.jpg" alt="Fotografia ritagliata con rapporto cinque a due" loading="lazy"></div>
+		<pre class="typography__code"><code>@use "../../scss/media" as images;
+
+.images__mixin {
+    @include images.media();
+    @include images.ratio(5, 2);
+
+    img {
+        @include images.object-fit(cover);
+        @include images.object-position(top);
+    }
+}</code></pre>
+		<p class="text-xs">Equivalente alle utility media, object-cover e object-top, con ratio personalizzato. <code>ratio()</code> accetta due numeri positivi senza unità. I mixin object-fit e object-position accettano anche valori CSS personalizzati.</p>
+	</article>
+</section>
 				
 			</main>
 
