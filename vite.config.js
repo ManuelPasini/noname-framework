@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
 import { resolve } from 'path'
 import { execFile } from 'child_process'
+import { discoverPages } from './scripts/discover-pages.js'
 
 function twigWatcher() {
     let renderTimer
@@ -14,8 +15,8 @@ function twigWatcher() {
                 resolve(__dirname, 'src/components')
             ])
 
-            server.watcher.on('change', (file) => {
-                if (!file.endsWith('.twig')) {
+            const onTemplateEvent = (event, file) => {
+                if (!['add', 'change', 'unlink'].includes(event) || !file.endsWith('.twig')) {
                     return
                 }
 
@@ -38,20 +39,22 @@ function twigWatcher() {
                         }
                     )
                 }, 100)
+            }
+
+            server.watcher.on('all', onTemplateEvent)
+            server.httpServer?.once('close', () => {
+                clearTimeout(renderTimer)
+                server.watcher.off('all', onTemplateEvent)
             })
         }
     }
-}
-
-const pages = {
-    main: resolve(__dirname, 'index.html')
 }
 
 export default defineConfig({
     plugins: [twigWatcher()],
     build: {
         rollupOptions: {
-            input: pages
+            input: discoverPages().map(({ output }) => resolve(__dirname, output))
         }
     }
 })

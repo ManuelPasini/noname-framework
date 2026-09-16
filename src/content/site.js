@@ -3,12 +3,10 @@ export const galleryImages = ["91", "92", "93", "94", "95", "96", "97", "98", "9
   alt: `Esempio immagine gallery ${number}`
 }));
 
-export const pages = [{
-  output: "index.html",
+export const pageDefaults = {
   htmlLang: "it",
   locale: "it_IT",
-  url: "/",
   description: "NoName Framework: base frontend modulare con Twig, SCSS e JavaScript.",
   keywords: "frontend framework, Twig, SCSS, JavaScript, componenti UI",
   schema: { name: "NoName Framework", inLanguage: "it-IT" }
-}];
+};

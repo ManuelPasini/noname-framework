@@ -4,25 +4,25 @@
 
 		<pre class="typography__code"><code>@include text($size, $margin, $weight);</code></pre>
 
+
 		<p>
-			<strong>$size</strong>
-			— font-size + line-height ·
-			<strong>$margin</strong>
-			— margin-bottom ·
-			<strong>$weight</strong>
-			— font-weight
+			<code>$size</code> required ·
+			<code>$margin</code> optional ·
+			<code>$weight</code> optional
 		</p>
 
-		<pre class="typography__code"><code>@include text(md, xs, 700)</code></pre>
-		<p>
-			Solo
-			<code>$size</code>
-			è obbligatorio. I parametri opzionali possono essere omessi.
-		</p>
-		<pre class="typography__code"><code>@include text(md, $weight: 700);</code></pre>
+		<pre class="typography__code"><code>@include text(md, xs, 700);
+@include text(md, $weight: 700);</code></pre>
 
-    <p> Utility class: <code>.text-{xs|sm|md|lg|xl|2xl|3xl|4xl}</code> </p>
-	<p> Utility class: <code>.weight-{100|200|300|400|500|600|700|800|900}</code> </p>
+		<p>
+			Size utilities class:
+			<code>.text-{xs|sm|md|lg|xl|2xl|3xl|4xl}</code>
+		</p>
+
+		<p>
+			Weight utilities class:
+			<code>.weight-{100|200|300|400|500|600|700|800|900}</code>
+		</p>
 
 	</div>
 

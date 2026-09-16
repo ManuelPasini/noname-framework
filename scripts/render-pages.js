@@ -1,15 +1,21 @@
 import { mkdir, writeFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import Twig from "twig";
-import { galleryImages, pages } from "../src/content/site.js";
+import { galleryImages, pageDefaults } from "../src/content/site.js";
+import { discoverPages } from "./discover-pages.js";
 
 const root = resolve(import.meta.dirname, "..");
-const pageTemplate = Twig.twig({
-  path: resolve(root, "src/templates/page.twig"),
-  async: false
-});
 
-await Promise.all(pages.map(async (page) => {
+await Promise.all(discoverPages().map(async ({ template, output: outputName }) => {
+  const page = {
+    ...pageDefaults,
+    output: outputName,
+    url: outputName === "index.html" ? "/" : `/${outputName}`
+  };
+  const pageTemplate = Twig.twig({
+    path: template,
+    async: false
+  });
   const schemaJson = JSON.stringify({
     "@context": "https://schema.org",
     "@type": "WebSite",
