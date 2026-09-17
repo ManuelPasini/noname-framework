@@ -73,6 +73,8 @@
 
 	<article class="grid-docs__example">
 		<h3 class="grid-docs__label text-sm">06 / Gap e Flexbox</h3>
+		<p>Sintassi responsive: <code>gap-{breakpoint}-{dimensione}</code>. Per esempio <code>gap-xs gap-md-3xl</code> usa xs sotto 768px e 3xl da 768px in su; <code>gap-lg-0</code> azzera il gap da 1024px.</p>
+		<p>Per gap e order i breakpoint sono sm, md, lg, xl e xxl, con soglie minime come nella griglia. Usa la classe base per gli schermi più piccoli: <code>gap-xs</code> indica una dimensione, mentre <code>gap-xs-md</code> non esiste. La variante breakpoint xs, limitata a meno di 576px, è disponibile solo per margin e padding.</p>
 		<p>Da <code>.gap-xs</code> a <code>.gap-4xl</code>, oppure <code>.gap-0</code>. La stessa utility funziona anche con Flexbox.</p>
 		{% for size in ['xs', 'md', 'xl'] %}
 			<p class="text-xs"><code>grid grid-cols-3 gap-{{ size }}</code></p>
@@ -108,5 +110,20 @@
     @include layout.grid-start(3);
 }</code></pre>
 		<p class="text-xs"><code>grid()</code> usa 12 colonne e gap md. Configurazione in <code>_settings.scss</code>, mixin e utility in <code>_layout.scss</code>. Per i contenitori: <code>.container</code> ha una larghezza massima, <code>.container-fluid</code> mantiene soltanto i margini laterali.</p>
+	</article>
+	<article class="grid-docs__example">
+		<h3 class="grid-docs__label text-sm">08 / Ordine responsive</h3>
+		<p><code>order-{numero}</code> e <code>order-{breakpoint}-{numero}</code> cambiano l'ordine visivo dei figli diretti di Grid o Flex. I numeri più bassi vengono prima. Nella configurazione attuale sono disponibili valori da 0 a 12.</p>
+		<p>Ridimensiona la finestra: sotto 768px il testo precede il video; da md il video precede il testo.</p>
+		<div class="grid-docs__visual grid grid-cols-1 grid-cols-md-2 gap-md">
+			<div class="grid-docs__cell order-2 order-md-1">Video</div>
+			<div class="grid-docs__cell order-1 order-md-2">Testo</div>
+		</div>
+		<pre class="typography__code"><code>&lt;div class="grid grid-cols-1 grid-cols-md-2 gap-md"&gt;
+    &lt;div class="order-2 order-md-1"&gt;Video&lt;/div&gt;
+    &lt;div class="order-1 order-md-2"&gt;Testo&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+		<p>Gli elementi senza order hanno valore 0 e precedono quelli con valori positivi. A parità di valore viene mantenuto l'ordine del documento. <code>order-md-0</code> ripristina il valore predefinito da 768px.</p>
+		<p>Order cambia solo la disposizione visiva: la lettura degli screen reader e la navigazione con Tab seguono l'ordine originale nell'HTML. Mantieni nel markup una sequenza comprensibile.</p>
 	</article>
 </section>

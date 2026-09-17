@@ -1,27 +1,17 @@
 <!doctype html>
 <html lang="{{ page.htmlLang }}">
-	{% include "../components/head/head.twig" %}
+	{% include "../components/head/head-portfolio.twig" %}
 
-	<body>
+	<body class="portfolio">
 
 		<div class="container">
-			<header class="site-header" data-gsap="reveal">
-				<p class="text-xs">
-					Portfolio / Progetti selezionati
-				</p>
-				<h1>Manuel Pasini</h1>
-
-			</header>
 
 			<main>
-				{% include "../components/typography/typography.twig" %}
-				{% include "../components/spaces/spaces.twig" %}
-				{% include "../components/grid/grid.twig" %}
-				{% include "../components/images/images.twig" %}
-				{# {% include "../components/gallery/gallery.twig" %} #}
+				{% include "../components/portfolio/portfolio.twig" %}
+
 			</main>
 
-			{% include "../components/footer/footer.twig" %}
+			{% include "../components/footer/footer-portfolio.twig" %}
 		</div>
 
 		<script type="module" src="/src/js/main.js"></script>

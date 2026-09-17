@@ -1,0 +1,31 @@
+<section class="documentation-section" aria-labelledby="video-title">
+  <h2 id="video-title">Video</h2>
+  <p>Video nativo con copertina e Play personalizzato. Dopo l'avvio restano disponibili i controlli del browser, anche in pausa. Senza JavaScript i controlli sono visibili da subito.</p>
+  {% include './video.twig' with { video: {
+    label: 'Volpire',
+    class: 'ratio-4-3 ratio-md-16-9',
+    sources: [{ src: '/videos/volpire.mp4', type: 'video/mp4' }]
+  } } %}
+  <pre class="typography__code"><code>{% verbatim %}{% include "../video/video.twig" with { video: {
+  label: 'Titolo progetto',
+  poster: '/images/copertina.webp',
+  class: 'ratio-4-3 ratio-md-16-9',
+  fit: 'object-contain',
+  sources: [{ src: '/videos/progetto.mp4', type: 'video/mp4' }]
+} } %}{% endverbatim %}</code></pre>
+  <p>Il percorso dell'include è relativo al template chiamante: da src/templates usa ../components/video/video.twig. Poster è opzionale: indica un'immagine di copertina reale. Sources accetta anche più formati, nell'ordine di preferenza.</p>
+  <p>Usa le stesse utility ratio, object-fit e object-position delle immagini. Per un rapporto custom applica il mixin ratio alla tua classe. Tracks accetta src, lang, label, kind e default per sottotitoli in formato WebVTT.</p>
+  <h3>Video desktop e mobile</h3>
+  <pre class="typography__code"><code>{% verbatim %}{% include "../components/video/video.twig" with { video: {
+  label: 'Titolo progetto',
+  poster: '/images/cover-desktop.webp',
+  class: 'ratio-9-16 ratio-md-16-9',
+  sources: [{ src: '/videos/desktop.mp4', type: 'video/mp4' }],
+  mobile: {
+    poster: '/images/cover-mobile.webp',
+    sources: [{ src: '/videos/mobile.mp4', type: 'video/mp4' }]
+  }
+} } %}{% endverbatim %}</code></pre>
+  <p>Sotto 768px viene selezionata la variante mobile; da 768px quella desktop. Il percorso di questo esempio parte da src/templates. Senza mobile.sources si usa sempre il video principale. Se manca mobile.poster viene mantenuta la copertina desktop.</p>
+  <p>Al cambio di breakpoint il video si ferma e la nuova variante riparte dalla copertina: premi Play per avviarla dall'inizio. Senza JavaScript rimane disponibile il video desktop con controlli nativi. Le tracce dei sottotitoli sono condivise tra le due versioni.</p>
+</section>

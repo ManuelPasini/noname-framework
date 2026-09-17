@@ -1,34 +1,4 @@
-<!doctype html>
-<html lang="it">
-	<head>
-	<meta charset="utf-8"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1"/>
-	<title>NoName Framework</title>
-	<meta name="description" content="NoName Framework: base frontend modulare con Twig, SCSS e JavaScript."/>
-	<meta name="keywords" content="frontend framework, Twig, SCSS, JavaScript, componenti UI"/>
-	<meta name="author" content="NoName Framework"/>
-	<meta name="robots" content="index, follow"/>
-	<meta property="og:title" content="NoName Framework"/>
-	<meta property="og:description" content="NoName Framework: base frontend modulare con Twig, SCSS e JavaScript."/>
-	<meta property="og:type" content="website"/>
-	<meta property="og:site_name" content="NoName Framework"/>
-	<meta property="og:locale" content="it_IT"/>
-	<meta name="twitter:card" content="summary"/>
-	<meta name="twitter:title" content="NoName Framework"/>
-	<meta name="twitter:description" content="NoName Framework: base frontend modulare con Twig, SCSS e JavaScript."/>
-	<meta name="application-name" content="NoName Framework"/>
-	<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"NoName Framework","inLanguage":"it-IT","url":"/portfolio.html","description":"NoName Framework: base frontend modulare con Twig, SCSS e JavaScript."}</script>
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Geist:ital,wght@0,100..900;1,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
-</head>
-
-	<body class="portfolio">
-
-		<div class="container">
-
-			<main>
-				<header class="site-header pt-xl" data-gsap="reveal">
+<header class="site-header pt-xl" data-gsap="reveal">
   <div class="grid grid-cols-12 gap-md" data-gsap="reveal">
     <div class="col-span-12 col-span-md-8 col-start-1 col-start-md-5">
 
@@ -96,19 +66,12 @@
   
 
     <div class="col-span-12 col-span-md-5 col-start-md-7">
-      
-<div class="media video-player volpire" data-video>
-  <video controls controlslist="nodownload nofullscreen" preload="metadata" playsinline tabindex="0"
-    aria-label="Volpire"
-    class="object-cover"
-    poster="&#x2F;images&#x2F;volpi.png">
-          <source src="&#x2F;videos&#x2F;volpire.mp4" type="video&#x2F;mp4">
-            Il tuo browser non supporta la riproduzione video.
-  </video>
-    <button class="video-player__play" type="button" aria-label="Riproduci Volpire" hidden>
-    <span aria-hidden="true"></span>
-  </button>
-</div>
+      {% include '../video/video.twig' with { video: {
+        label: 'Volpire',
+        class: 'volpire',
+        poster: '/images/volpi.png',
+        sources: [{ src: '/videos/volpire.mp4', type: 'video/mp4' }]
+      } } %}
     </div>
   </div>
 
@@ -120,19 +83,12 @@
   <div class="grid grid-cols-12 gap-md" data-gsap="reveal">
     
     <div class="col-span-12 col-span-md-4 col-start-md-2 order-2 order-md-1">
-      
-<div class="media video-player youmodel&#x20;ratio-9-16" data-video>
-  <video controls controlslist="nodownload nofullscreen" preload="metadata" playsinline tabindex="0"
-    aria-label="YOU&#x20;model"
-    class="object-cover"
-    poster="&#x2F;images&#x2F;you-cover.png">
-          <source src="&#x2F;videos&#x2F;you-model-mangement.mp4" type="video&#x2F;mp4">
-            Il tuo browser non supporta la riproduzione video.
-  </video>
-    <button class="video-player__play" type="button" aria-label="Riproduci YOU&#x20;model" hidden>
-    <span aria-hidden="true"></span>
-  </button>
-</div>
+      {% include '../video/video.twig' with { video: {
+        label: 'YOU model',
+        class: 'youmodel ratio-9-16',
+        poster: '/images/you-cover.png',
+        sources: [{ src: '/videos/you-model-mangement.mp4', type: 'video/mp4' }]
+      } } %}
      
     </div>
   
@@ -214,14 +170,3 @@
   </div>
 
 </section>
-
-			</main>
-
-			<footer class="site-footer">
-  <p class="text-xs">© 2026 Manuel Pasini. Tutti i diritti riservati.</p>
-</footer>
-		</div>
-
-		<script type="module" src="/src/js/main.js"></script>
-	</body>
-</html>

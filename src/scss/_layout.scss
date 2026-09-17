@@ -46,6 +46,11 @@
 
 // Generatore condiviso per classi base e varianti mobile-first.
 @mixin grid-utilities($suffix: "") {
+  // Ordine visivo dei figli di Grid e Flex, anche ai breakpoint.
+  @for $order from 0 through $grid-columns {
+    .order#{$suffix}-#{$order} { order: $order; }
+  }
+
   @for $column from 1 through $grid-columns {
     .grid-cols#{$suffix}-#{$column} { @include grid-columns($column); }
     .col-span#{$suffix}-#{$column} { @include grid-span($column); }

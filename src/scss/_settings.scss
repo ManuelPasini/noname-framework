@@ -4,7 +4,7 @@
 // Configurazione condivisa: funzioni fluide, token e breakpoint. Non genera CSS.
 
 $fluid-min-width: 320px;
-$fluid-max-width: 1200px;
+$fluid-max-width: 1400px;
 $root-font-size: 16px;
 
 @function strip-unit($value) {
@@ -56,7 +56,7 @@ $root-font-size: 16px;
 }
 
 /* layout */
-$container-max-width: 1200px;
+$container-max-width: 1400px;
 $container-padding: 1rem;
 $grid-columns: 12;
 $grid-auto-widths: (

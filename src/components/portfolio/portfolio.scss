@@ -1,0 +1,41 @@
+@use "../../scss/media" as images;
+
+body {
+    font-family: "Geist", sans-serif;
+    font-optical-sizing: auto;
+    ;
+    font-style: normal;
+}
+
+.portfolio {
+    section {
+        padding: var(--space-3xl) 0;
+
+        .grey {
+            color: #ada0a0
+        }
+
+        .brochure {
+            @include images.ratio(1.4502, 1);
+        }
+
+        .volpire {
+            @include images.ratio(384, 455);
+        }
+
+        .kooper {
+            @include images.ratio(167, 106);
+        }
+
+        .loghi {
+            > div {
+                display:flex;
+                align-items: center;
+                img {
+                    width: 100%;
+                    opacity: 0.5;
+                }
+            }
+        }
+    }
+}

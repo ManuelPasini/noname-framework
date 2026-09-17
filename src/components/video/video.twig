@@ -1,0 +1,25 @@
+{# Optional mobile: { sources: [{ src, type }], poster }. Breakpoint: 768px. #}
+<div class="media video-player {{ video.class|default('')|escape('html_attr') }}" data-video>
+  <video controls controlslist="nodownload nofullscreen" preload="{{ video.mobile.sources ? 'none' : 'metadata' }}" playsinline tabindex="0"
+    aria-label="{{ video.label|default('Video')|escape('html_attr') }}"
+    class="{{ video.fit|default('object-cover')|escape('html_attr') }}"
+    {% if video.poster %}poster="{{ video.poster|escape('html_attr') }}"{% endif %}>
+    {% for source in video.sources %}
+      <source src="{{ source.src|escape('html_attr') }}" type="{{ source.type|escape('html_attr') }}">
+    {% endfor %}
+    {% for track in video.tracks|default([]) %}
+      <track kind="{{ track.kind|default('captions')|escape('html_attr') }}" src="{{ track.src|escape('html_attr') }}" srclang="{{ track.lang|escape('html_attr') }}" label="{{ track.label|escape('html_attr') }}" {% if track.default %}default{% endif %}>
+    {% endfor %}
+    Il tuo browser non supporta la riproduzione video.
+  </video>
+  {% if video.mobile.sources %}
+    <template data-video-mobile {% if video.mobile.poster is defined %}data-poster="{{ video.mobile.poster|escape('html_attr') }}"{% endif %}>
+      {% for source in video.mobile.sources %}
+        <source src="{{ source.src|escape('html_attr') }}" type="{{ source.type|escape('html_attr') }}">
+      {% endfor %}
+    </template>
+  {% endif %}
+  <button class="video-player__play" type="button" aria-label="Riproduci {{ video.label|default('video')|escape('html_attr') }}" hidden>
+    <span aria-hidden="true"></span>
+  </button>
+</div>

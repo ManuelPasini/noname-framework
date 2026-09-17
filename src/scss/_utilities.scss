@@ -1,3 +1,4 @@
+@use "sass:map";
 @use "settings" as *;
 @use "media" as images;
 
@@ -448,42 +449,56 @@ $directions: (
     bottom,
     left
   ),
-  "-x": (
+  "x": (
     left,
     right
   ),
-  "-y": (
+  "y": (
     top,
     bottom
   ),
-  "-top": (
+  "t": (
     top
   ),
-  "-right": (
+  "r": (
     right
   ),
-  "-bottom": (
+  "b": (
     bottom
   ),
-  "-left": (
+  "l": (
     left
   )
 );
 
-@each $name, $value in $spaces {
-  @each $direction, $properties in $directions {
-
-    .margin#{$direction}-#{$name} {
-      @each $property in $properties {
-        margin-#{$property}: var(--space-#{$name});
+@mixin spacing-utilities($suffix: "") {
+  @each $name, $value in map.merge($spaces, (0: 0)) {
+    @each $direction, $properties in $directions {
+      @each $prefix, $type in (m: margin, p: padding) {
+        .#{$prefix}#{$direction}#{$suffix}-#{$name} {
+          @each $property in $properties {
+            @if $name == 0 {
+              #{$type}-#{$property}: 0;
+            } @else {
+              #{$type}-#{$property}: var(--space-#{$name});
+            }
+          }
+        }
       }
     }
+  }
+}
 
-    .padding#{$direction}-#{$name} {
-      @each $property in $properties {
-        padding-#{$property}: var(--space-#{$name});
-      }
-    }
+@include spacing-utilities();
 
+// xs targets only widths below the first breakpoint.
+@media (width < #{map.get($breakpoints, sm)}) {
+  @include spacing-utilities("-xs");
+}
+
+// Match the min-width convention used by grid and ratio utilities.
+@each $name, $width in $breakpoints {
+  @media (min-width: $width) {
+    @include spacing-utilities("-#{$name}");
   }
 }

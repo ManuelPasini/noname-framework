@@ -137,16 +137,41 @@
 			contengono valori fluidi riutilizzabili per margini e padding.
 		</p>
 		<pre class="typography__code"><code>margin: var(--space-md);</code></pre>
-		<p> Utility class: <code>.{margin|padding}[-{top|right|bottom|left|x|y}]-*</code> </p>
+		<p>Utility: <code>{m|p}[t|r|b|l|x|y]-{size}</code>. m indica margin, p indica padding. Senza suffisso si applicano tutti i lati; t = sopra, r = destra, b = sotto, l = sinistra, x = orizzontale, y = verticale.</p>
+		<p>Responsive: <code>{m|p}[t|r|b|l|x|y]-{breakpoint}-{size}</code>. Dimensioni: xs, sm, md, lg, xl, 2xl, 3xl, 4xl oppure 0.</p>
+		<pre class="typography__code"><code>m mt mr mb ml mx my
+p pt pr pb pl px py</code></pre>
+		<pre class="typography__code"><code>mb-xs-md
+px-md-lg
+mb-lg-0</code></pre>
+		<p><code>mb-xs-md</code> applica lo spazio md sotto 576px. xs vale solo sotto sm; gli altri breakpoint valgono dalla propria soglia in su: sm 576px, md 768px, lg 1024px, xl 1280px, xxl 1440px.</p>
+		<p>Puoi combinare una classe base con quelle responsive: <code>p-xs p-md-lg</code>. A parità di proprietà le regole responsive prevalgono sulla base, indipendentemente dall'ordine delle classi nel markup.</p>
 
 	</div>
+
+	<article class="spaces__example">
+		<h3 class="text-sm">Margini e padding ai breakpoint</h3>
+		<p>Ordine dei segmenti: proprietà, eventuale lato, breakpoint, dimensione. Senza lato si applicano tutti i lati; x indica sinistra e destra, y indica sopra e sotto.</p>
+		<pre class="typography__code"><code>mb-xs-md
+px-md-lg
+py-lg-xl
+p-md-lg</code></pre>
+		<p>Nel primo esempio xs è il breakpoint (sotto 576px) e md è la dimensione dello spazio. In px-md-lg, md è il breakpoint (da 768px) e lg è la dimensione.</p>
+		<h3 class="text-sm">Azzerare su mobile, aggiungere su desktop</h3>
+		<pre class="typography__code"><code>&lt;div class="mt-0 mt-md-3xl"&gt;...&lt;/div&gt;</code></pre>
+		<p>Margine superiore 0 sotto 768px, 3xl da 768px in su.</p>
+		<h3 class="text-sm">Spazio solo su xs e sm</h3>
+		<pre class="typography__code"><code>&lt;div class="mb-lg mb-md-0"&gt;...&lt;/div&gt;</code></pre>
+		<p>Margine inferiore lg sotto 768px, 0 da 768px. Le varianti sm, md, lg, xl e xxl restano attive anche sugli schermi più grandi finché una variante successiva non le sovrascrive.</p>
+		<p>Inserisci queste utility nell'attributo <code>class</code>, insieme alle altre classi dell'elemento.</p>
+	</article>
 
 	<div class="spaces__examples">
 					<article class="spaces__example">
 				<div class="spaces__meta">
 					<span class="text-xs">var(--space-xs)</span>
 				</div>
-				<div class="spaces__visual padding-bottom-xs">
+				<div class="spaces__visual pb-xs">
 					<span class="spaces__gap" aria-hidden="true"></span>
 				</div>
 			</article>
@@ -154,7 +179,7 @@
 				<div class="spaces__meta">
 					<span class="text-xs">var(--space-sm)</span>
 				</div>
-				<div class="spaces__visual padding-bottom-sm">
+				<div class="spaces__visual pb-sm">
 					<span class="spaces__gap" aria-hidden="true"></span>
 				</div>
 			</article>
@@ -162,7 +187,7 @@
 				<div class="spaces__meta">
 					<span class="text-xs">var(--space-md)</span>
 				</div>
-				<div class="spaces__visual padding-bottom-md">
+				<div class="spaces__visual pb-md">
 					<span class="spaces__gap" aria-hidden="true"></span>
 				</div>
 			</article>
@@ -170,7 +195,7 @@
 				<div class="spaces__meta">
 					<span class="text-xs">var(--space-lg)</span>
 				</div>
-				<div class="spaces__visual padding-bottom-lg">
+				<div class="spaces__visual pb-lg">
 					<span class="spaces__gap" aria-hidden="true"></span>
 				</div>
 			</article>
@@ -178,7 +203,7 @@
 				<div class="spaces__meta">
 					<span class="text-xs">var(--space-xl)</span>
 				</div>
-				<div class="spaces__visual padding-bottom-xl">
+				<div class="spaces__visual pb-xl">
 					<span class="spaces__gap" aria-hidden="true"></span>
 				</div>
 			</article>
@@ -186,7 +211,7 @@
 				<div class="spaces__meta">
 					<span class="text-xs">var(--space-2xl)</span>
 				</div>
-				<div class="spaces__visual padding-bottom-2xl">
+				<div class="spaces__visual pb-2xl">
 					<span class="spaces__gap" aria-hidden="true"></span>
 				</div>
 			</article>
@@ -194,7 +219,7 @@
 				<div class="spaces__meta">
 					<span class="text-xs">var(--space-3xl)</span>
 				</div>
-				<div class="spaces__visual padding-bottom-3xl">
+				<div class="spaces__visual pb-3xl">
 					<span class="spaces__gap" aria-hidden="true"></span>
 				</div>
 			</article>
@@ -202,7 +227,7 @@
 				<div class="spaces__meta">
 					<span class="text-xs">var(--space-4xl)</span>
 				</div>
-				<div class="spaces__visual padding-bottom-4xl">
+				<div class="spaces__visual pb-4xl">
 					<span class="spaces__gap" aria-hidden="true"></span>
 				</div>
 			</article>
@@ -327,6 +352,8 @@
 
 	<article class="grid-docs__example">
 		<h3 class="grid-docs__label text-sm">06 / Gap e Flexbox</h3>
+		<p>Sintassi responsive: <code>gap-{breakpoint}-{dimensione}</code>. Per esempio <code>gap-xs gap-md-3xl</code> usa xs sotto 768px e 3xl da 768px in su; <code>gap-lg-0</code> azzera il gap da 1024px.</p>
+		<p>Per gap e order i breakpoint sono sm, md, lg, xl e xxl, con soglie minime come nella griglia. Usa la classe base per gli schermi più piccoli: <code>gap-xs</code> indica una dimensione, mentre <code>gap-xs-md</code> non esiste. La variante breakpoint xs, limitata a meno di 576px, è disponibile solo per margin e padding.</p>
 		<p>Da <code>.gap-xs</code> a <code>.gap-4xl</code>, oppure <code>.gap-0</code>. La stessa utility funziona anche con Flexbox.</p>
 					<p class="text-xs"><code>grid grid-cols-3 gap-xs</code></p>
 			<div class="grid-docs__visual grid grid-cols-3 gap-xs">
@@ -364,6 +391,21 @@
     @include layout.grid-start(3);
 }</code></pre>
 		<p class="text-xs"><code>grid()</code> usa 12 colonne e gap md. Configurazione in <code>_settings.scss</code>, mixin e utility in <code>_layout.scss</code>. Per i contenitori: <code>.container</code> ha una larghezza massima, <code>.container-fluid</code> mantiene soltanto i margini laterali.</p>
+	</article>
+	<article class="grid-docs__example">
+		<h3 class="grid-docs__label text-sm">08 / Ordine responsive</h3>
+		<p><code>order-{numero}</code> e <code>order-{breakpoint}-{numero}</code> cambiano l'ordine visivo dei figli diretti di Grid o Flex. I numeri più bassi vengono prima. Nella configurazione attuale sono disponibili valori da 0 a 12.</p>
+		<p>Ridimensiona la finestra: sotto 768px il testo precede il video; da md il video precede il testo.</p>
+		<div class="grid-docs__visual grid grid-cols-1 grid-cols-md-2 gap-md">
+			<div class="grid-docs__cell order-2 order-md-1">Video</div>
+			<div class="grid-docs__cell order-1 order-md-2">Testo</div>
+		</div>
+		<pre class="typography__code"><code>&lt;div class="grid grid-cols-1 grid-cols-md-2 gap-md"&gt;
+    &lt;div class="order-2 order-md-1"&gt;Video&lt;/div&gt;
+    &lt;div class="order-1 order-md-2"&gt;Testo&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+		<p>Gli elementi senza order hanno valore 0 e precedono quelli con valori positivi. A parità di valore viene mantenuto l'ordine del documento. <code>order-md-0</code> ripristina il valore predefinito da 768px.</p>
+		<p>Order cambia solo la disposizione visiva: la lettura degli screen reader e la navigazione con Tab seguono l'ordine originale nell'HTML. Mantieni nel markup una sequenza comprensibile.</p>
 	</article>
 </section>
 				﻿<section class="documentation-section images" aria-labelledby="images-title" data-gsap="reveal">
@@ -489,6 +531,45 @@ object-center object-top object-bottom object-left object-right</code></pre>
 }</code></pre>
 		<p class="text-xs">Equivalente alle utility media, object-cover e object-top, con ratio personalizzato. <code>ratio()</code> accetta due numeri positivi senza unità. I mixin object-fit e object-position accettano anche valori CSS personalizzati.</p>
 	</article>
+</section>
+				<section class="documentation-section" aria-labelledby="video-title">
+  <h2 id="video-title">Video</h2>
+  <p>Video nativo con copertina e Play personalizzato. Dopo l'avvio restano disponibili i controlli del browser, anche in pausa. Senza JavaScript i controlli sono visibili da subito.</p>
+  
+<div class="media video-player ratio-4-3&#x20;ratio-md-16-9" data-video>
+  <video controls controlslist="nodownload nofullscreen" preload="metadata" playsinline tabindex="0"
+    aria-label="Volpire"
+    class="object-cover"
+    >
+          <source src="&#x2F;videos&#x2F;volpire.mp4" type="video&#x2F;mp4">
+            Il tuo browser non supporta la riproduzione video.
+  </video>
+    <button class="video-player__play" type="button" aria-label="Riproduci Volpire" hidden>
+    <span aria-hidden="true"></span>
+  </button>
+</div>
+  <pre class="typography__code"><code>{% include "../video/video.twig" with { video: {
+  label: 'Titolo progetto',
+  poster: '/images/copertina.webp',
+  class: 'ratio-4-3 ratio-md-16-9',
+  fit: 'object-contain',
+  sources: [{ src: '/videos/progetto.mp4', type: 'video/mp4' }]
+} } %}</code></pre>
+  <p>Il percorso dell'include è relativo al template chiamante: da src/templates usa ../components/video/video.twig. Poster è opzionale: indica un'immagine di copertina reale. Sources accetta anche più formati, nell'ordine di preferenza.</p>
+  <p>Usa le stesse utility ratio, object-fit e object-position delle immagini. Per un rapporto custom applica il mixin ratio alla tua classe. Tracks accetta src, lang, label, kind e default per sottotitoli in formato WebVTT.</p>
+  <h3>Video desktop e mobile</h3>
+  <pre class="typography__code"><code>{% include "../components/video/video.twig" with { video: {
+  label: 'Titolo progetto',
+  poster: '/images/cover-desktop.webp',
+  class: 'ratio-9-16 ratio-md-16-9',
+  sources: [{ src: '/videos/desktop.mp4', type: 'video/mp4' }],
+  mobile: {
+    poster: '/images/cover-mobile.webp',
+    sources: [{ src: '/videos/mobile.mp4', type: 'video/mp4' }]
+  }
+} } %}</code></pre>
+  <p>Sotto 768px viene selezionata la variante mobile; da 768px quella desktop. Il percorso di questo esempio parte da src/templates. Senza mobile.sources si usa sempre il video principale. Se manca mobile.poster viene mantenuta la copertina desktop.</p>
+  <p>Al cambio di breakpoint il video si ferma e la nuova variante riparte dalla copertina: premi Play per avviarla dall'inizio. Senza JavaScript rimane disponibile il video desktop con controlli nativi. Le tracce dei sottotitoli sono condivise tra le due versioni.</p>
 </section>
 				
 			</main>

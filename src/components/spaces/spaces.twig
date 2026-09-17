@@ -7,9 +7,34 @@
 			contengono valori fluidi riutilizzabili per margini e padding.
 		</p>
 		<pre class="typography__code"><code>margin: var(--space-md);</code></pre>
-		<p> Utility class: <code>.{margin|padding}[-{top|right|bottom|left|x|y}]-*</code> </p>
+		<p>Utility: <code>{m|p}[t|r|b|l|x|y]-{size}</code>. m indica margin, p indica padding. Senza suffisso si applicano tutti i lati; t = sopra, r = destra, b = sotto, l = sinistra, x = orizzontale, y = verticale.</p>
+		<p>Responsive: <code>{m|p}[t|r|b|l|x|y]-{breakpoint}-{size}</code>. Dimensioni: xs, sm, md, lg, xl, 2xl, 3xl, 4xl oppure 0.</p>
+		<pre class="typography__code"><code>m mt mr mb ml mx my
+p pt pr pb pl px py</code></pre>
+		<pre class="typography__code"><code>mb-xs-md
+px-md-lg
+mb-lg-0</code></pre>
+		<p><code>mb-xs-md</code> applica lo spazio md sotto 576px. xs vale solo sotto sm; gli altri breakpoint valgono dalla propria soglia in su: sm 576px, md 768px, lg 1024px, xl 1280px, xxl 1440px.</p>
+		<p>Puoi combinare una classe base con quelle responsive: <code>p-xs p-md-lg</code>. A parità di proprietà le regole responsive prevalgono sulla base, indipendentemente dall'ordine delle classi nel markup.</p>
 
 	</div>
+
+	<article class="spaces__example">
+		<h3 class="text-sm">Margini e padding ai breakpoint</h3>
+		<p>Ordine dei segmenti: proprietà, eventuale lato, breakpoint, dimensione. Senza lato si applicano tutti i lati; x indica sinistra e destra, y indica sopra e sotto.</p>
+		<pre class="typography__code"><code>mb-xs-md
+px-md-lg
+py-lg-xl
+p-md-lg</code></pre>
+		<p>Nel primo esempio xs è il breakpoint (sotto 576px) e md è la dimensione dello spazio. In px-md-lg, md è il breakpoint (da 768px) e lg è la dimensione.</p>
+		<h3 class="text-sm">Azzerare su mobile, aggiungere su desktop</h3>
+		<pre class="typography__code"><code>&lt;div class="mt-0 mt-md-3xl"&gt;...&lt;/div&gt;</code></pre>
+		<p>Margine superiore 0 sotto 768px, 3xl da 768px in su.</p>
+		<h3 class="text-sm">Spazio solo su xs e sm</h3>
+		<pre class="typography__code"><code>&lt;div class="mb-lg mb-md-0"&gt;...&lt;/div&gt;</code></pre>
+		<p>Margine inferiore lg sotto 768px, 0 da 768px. Le varianti sm, md, lg, xl e xxl restano attive anche sugli schermi più grandi finché una variante successiva non le sovrascrive.</p>
+		<p>Inserisci queste utility nell'attributo <code>class</code>, insieme alle altre classi dell'elemento.</p>
+	</article>
 
 	<div class="spaces__examples">
 		{% for name in ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl'] %}
@@ -17,7 +42,7 @@
 				<div class="spaces__meta">
 					<span class="text-xs">var(--space-{{ name }})</span>
 				</div>
-				<div class="spaces__visual padding-bottom-{{ name }}">
+				<div class="spaces__visual pb-{{ name }}">
 					<span class="spaces__gap" aria-hidden="true"></span>
 				</div>
 			</article>
