@@ -1,0 +1,21 @@
+{# component: { title, text, image: { src, alt }, layout: 'image-text' | 'text-image', ratio: 'ratio-16-9' } #}
+{% set text_first = component.layout|default('image-text') == 'text-image' %}
+{% set ratio = component.ratio|default('ratio-16-9') %}
+{% set width = component.width|default('content-width-full') %}
+{% set content_class = text_first ? 'col-span-1 col-span-md-4 col-start-md-2' : 'col-span-1 col-span-md-4 col-start-md-8' %}
+{% set image_class = text_first ? 'col-span-1 col-span-md-6 col-start-md-7' : 'col-span-1 col-span-md-6 col-start-md-1' %}
+{% set copy %}
+  <div class="editorial__content {{ content_class }} min-w-0">
+    {% if component.title %}<h2 class="editorial__title text-2xl weight-700 mb-md">{{ component.title|escape }}</h2>{% endif %}
+    {% if component.text %}<p class="editorial__text text-sm m-0">{{ component.text|escape|nl2br }}</p>{% endif %}
+  </div>
+{% endset %}
+<section class="editorial {{ width|escape('html_attr') }} grid grid-cols-1 grid-cols-md-12 align-center gap-0 my-3xl">
+  {% if text_first %}{{ copy|raw }}{% endif %}
+  {% if component.image.src %}
+    <div class="editorial__media {{ image_class }} media {{ ratio|escape('html_attr') }} overflow-hidden">
+      <img class="object-cover" src="{{ component.image.src|escape('html_attr') }}" alt="{{ component.image.alt|default('')|escape('html_attr') }}" loading="lazy" decoding="async">
+    </div>
+  {% endif %}
+  {% if not text_first %}{{ copy|raw }}{% endif %}
+</section>

@@ -1,0 +1,11 @@
+{
+  "name": "pixelcut/theme",
+  "description": "Tema WordPress Pixelcut con Timber",
+  "type": "wordpress-theme",
+  "require": {
+    "php": ">=8.2",
+    "htmlburger/carbon-fields": "^3.6",
+    "timber/timber": "^2.0"
+  },
+  "config": { "sort-packages": true, "platform": { "php": "8.2.0" } }
+}

@@ -6,10 +6,9 @@
 @use "./layout";
 
 // Stili specifici dei componenti.
-@use "../components/typography/typography" as typography-docs;
-@use "../components/spaces/spaces";
-@use "../components/grid/grid" as grid-docs;
-@use "../components/images/images" as images-docs;
+@use "../components/header/header";
+@use "../components/editorial/editorial";
+@use "../components/text/text";
 @use "../components/gallery/gallery";
 @use "../components/video/video";
 @use "../components/portfolio/portfolio";

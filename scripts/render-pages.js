@@ -1,10 +1,10 @@
 import { mkdir, writeFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import Twig from "twig";
-import { galleryImages, pageDefaults } from "../src/content/site.js";
+import { galleryImages, pageDefaults } from "../docs/content/site.js";
 import { discoverPages } from "./discover-pages.js";
 
-const root = resolve(import.meta.dirname, "..");
+const root = resolve(import.meta.dirname, "../docs");
 
 await Promise.all(discoverPages().map(async ({ template, output: outputName }) => {
   const page = {

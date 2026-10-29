@@ -1,0 +1,6 @@
+{% extends 'base.twig' %}
+{% block content %}
+  {% for component in components %}
+    {% include component.template with { component: component.data } only %}
+  {% endfor %}
+{% endblock %}

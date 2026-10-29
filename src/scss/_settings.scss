@@ -104,14 +104,14 @@ $font-size: (
   4xl: fluid(48px, 96px)
 );
 $line-heights: (
-  xs:  (min: 1.25, max: 1.35),
-  sm:  (min: 1.35, max: 1.45),
-  md:  (min: 1.4, max: 1.5),
-  lg:  (min: 1.45, max: 1.55),
-  xl:  (min: 1.2, max: 1.3),
-  2xl: (min: 1.15, max: 1.2),
+  xs:  (min: 1.4,  max: 1.45),
+  sm:  (min: 1.4,  max: 1.5),
+  md:  (min: 1.4,  max: 1.5),
+  lg:  (min: 1.3,  max: 1.4),
+  xl:  (min: 1.2,  max: 1.3),
+  2xl: (min: 1.1,  max: 1.2),
   3xl: (min: 1.05, max: 1.15),
-  4xl: (min: 1, max: 1.1)
+  4xl: (min: 1,    max: 1.1)
 );
 
 /* spaces */

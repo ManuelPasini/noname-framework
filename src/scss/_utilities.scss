@@ -29,6 +29,25 @@
   display: inline-flex;
 }
 
+.text-align-left { text-align: left; }
+.text-align-center { text-align: center; }
+.text-align-right { text-align: right; }
+
+.content-width-full,
+.content-width-10,
+.content-width-8,
+.content-width-6 { width: 100%; margin-inline: auto; }
+
+.content-width-10 { max-width: 83.333333%; }
+.content-width-8 { max-width: 66.666667%; }
+.content-width-6 { max-width: 50%; }
+
+@include media(md) {
+  .content-width-10,
+  .content-width-8,
+  .content-width-6 { max-width: 100%; }
+}
+
 
 .none {
   display: none;

@@ -7,8 +7,10 @@
     "render": "node scripts/render-pages.js",
     "predev": "npm run render",
     "dev": "vite",
-    "prebuild": "npm run render",
-    "build": "vite build",
+    "build": "npm run build:docs && npm run build:theme",
+    "build:docs": "npm run render && vite build",
+    "build:theme": "vite build --config vite.theme.config.js",
+    "watch:theme": "vite build --config vite.theme.config.js --watch",
     "preview": "vite preview"
   },
   "keywords": [],

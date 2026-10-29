@@ -11,7 +11,8 @@ function twigWatcher() {
 
         configureServer(server) {
             server.watcher.add([
-                resolve(__dirname, 'src/templates'),
+                resolve(__dirname, 'docs/templates'),
+                resolve(__dirname, 'docs/components'),
                 resolve(__dirname, 'src/components')
             ])
 
@@ -51,10 +52,14 @@ function twigWatcher() {
 }
 
 export default defineConfig({
+    root: resolve(__dirname, 'docs'),
+    server: { fs: { allow: [__dirname] } },
     plugins: [twigWatcher()],
     build: {
+        outDir: resolve(__dirname, 'dist/docs'),
+        emptyOutDir: true,
         rollupOptions: {
-            input: discoverPages().map(({ output }) => resolve(__dirname, output))
+            input: discoverPages().map(({ output }) => resolve(__dirname, 'docs', output))
         }
     }
 })

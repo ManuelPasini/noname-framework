@@ -1,7 +1,7 @@
 import { readdirSync } from "node:fs";
 import { resolve } from "node:path";
 
-const templates = resolve(import.meta.dirname, "../src/templates");
+const templates = resolve(import.meta.dirname, "../docs/templates");
 
 export function discoverPages() {
   return readdirSync(templates, { withFileTypes: true })

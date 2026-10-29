@@ -1,0 +1,22 @@
+<section class="documentation-section" aria-labelledby="editorial-title">
+  <div class="documentation-section__intro">
+    <h2 id="editorial-title">Editorial</h2>
+    <p>Immagine e testo affiancati da 768px. Su mobile viene mantenuto l'ordine scelto.</p>
+    <p>Imposta <code>layout: 'image-text'</code> oppure <code>layout: 'text-image'</code>. Titolo, testo e immagine sono dati del componente.</p>
+    <p>Layout, font, spazi e immagini usano le utility del framework: <code>grid grid-cols-1 grid-cols-md-2 align-center gap-lg my-xl</code>, <code>text-2xl</code>, <code>text-md</code>, <code>media ratio-4-3</code> e <code>object-cover</code>. Lo SCSS resta disponibile per personalizzazioni.</p>
+  </div>
+  {% include '../../../src/components/editorial/editorial.twig' with { editorial: {
+    layout: 'image-text',
+    title: 'Immagine e testo',
+    text: 'Uno spazio per raccontare un progetto, accompagnando le parole con una fotografia.',
+    ratio: 'ratio-4-3',
+    image: { src: '/images/gallery-91.jpg', alt: 'Fotografia dalla gallery del portfolio' }
+  } } only %}
+  {% include '../../../src/components/editorial/editorial.twig' with { editorial: {
+    layout: 'text-image',
+    title: 'Testo e immagine',
+    text: 'Lo stesso componente, con il testo prima dell’immagine. L’ordine si conserva anche sui dispositivi mobili.',
+    ratio: 'ratio-16-9',
+    image: { src: '/images/gallery-92.jpg', alt: 'Seconda fotografia dalla gallery del portfolio' }
+  } } only %}
+</section>
