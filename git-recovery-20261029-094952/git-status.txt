@@ -1,0 +1,11 @@
+UD index.html
+UU portfolio.html
+DU public/images/CV__Manuel-Pasini_2026.pdf
+A  public/images/perugia_cover.png
+A  public/videos/perugia_web.mp4
+A  public/videos/recitarte-1.mp4
+A  public/videos/recitarte-2.mp4
+A  public/videos/recitarte-3.mp4
+DU src/components/portfolio/portfolio.scss
+DU src/components/portfolio/portfolio.twig
+?? git-recovery-20261029-094952/

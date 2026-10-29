@@ -2,7 +2,7 @@
   <div class="grid grid-cols-12 gap-md" data-gsap="reveal">
     <div class="col-span-12 col-span-md-8 col-start-1 col-start-md-5">
 
-      <p class="text-xs">
+      <p class="text-xs grey">
         Portfolio / Progetti selezionati / <a href="images/CV__Manuel-Pasini_2026.pdf" target="_blank" rel="noopener noreferrer">CV</a>
       </p>
       <h1>Manuel Pasini</h1>
@@ -51,6 +51,32 @@
 
 </section>
 
+<section>
+  <div class="grid grid-cols-12 gap-md" data-gsap="reveal">
+    
+    <div class="col-span-12 col-span-md-4 col-start-md-2 order-2 order-md-1">
+      {% include '../video/video.twig' with { video: {
+        label: 'YOU model',
+        class: 'youmodel ratio-9-16',
+        poster: '/images/perugia_cover.png',
+        sources: [{ src: '/videos/perugia_web.mp4', type: 'video/mp4' }]
+      } } %}
+     
+    </div>
+  
+
+    <div class="col-span-12 col-span-md-3 col-start-md-7 order-1 order-md-2">
+      <div class="text-xs grey mt-0 mt-md-3xl mb-xl mb-md-0">
+        Video sperimentale dedicato a Perugia, costruito sul contrasto tra la sua identità monumentale e le espressioni spontanee del paesaggio urbano contemporaneo.
+<br><br>
+Il progetto alterna riprese originali e animazioni di fotografie generate con l’intelligenza artificiale. Montaggio, sound design ed effetti digitali contrappongono la contemplazione dei monumenti al dinamismo degli spazi meno celebrati.
+<br><br>
+Il risultato è un ritratto soggettivo della città, che mette in discussione le convenzioni estetiche e il confine tra bellezza riconosciuta ed espressione urbana spontanea.
+      </div>
+    </div>
+  </div>
+</section>
+
 
 <section>
   
@@ -78,6 +104,8 @@
 
 
 </section>
+
+
 
 <section>
   <div class="grid grid-cols-12 gap-md" data-gsap="reveal">
@@ -109,6 +137,53 @@
 <section>
   
   <div class="grid grid-cols-12 gap-md" data-gsap="reveal">
+    <div class="col-span-12 col-span-md-5 col-start-1 col-start-md-7 mb-2xl">
+
+      <div class="text-xs grey">
+        Prototipi audiovisivi sviluppati per definire la linea editoriale per una accademia di recitazione. Il progetto comprende l’ideazione del concept e dei territori narrativi, la scrittura dei soggetti e delle sceneggiature, la progettazione della regia e il montaggio finale.
+<br><br>
+I contenuti dei video sono stati realizzati con strumenti di generazione AI come previsualizzazione creativa, con l’obiettivo di testare concretamente linguaggio, tono e struttura dei format prima della successiva realizzazione sul set.
+      </div>
+
+    </div>
+  </div>
+
+  <div class="grid grid-cols-12 gap-md" data-gsap="reveal">
+    <div class="col-start-1 col-start-md-2 col-span-12 col-span-md-4">
+      {% include '../video/video.twig' with { video: {
+        label: 'Recitarte',
+        class: 'recitarte ratio-9-16',
+
+        sources: [{ src: '/videos/recitarte-3.mp4', type: 'video/mp4' }]
+      } } %}
+    </div>
+    <div class="col-start-1 col-start-md-8 col-span-12 col-span-md-4 mt-3xl">
+      {% include '../video/video.twig' with { video: {
+        label: 'Recitarte',
+        class: 'recitarte ratio-9-16',
+
+        sources: [{ src: '/videos/recitarte-1.mp4', type: 'video/mp4' }]
+      } } %}
+    </div>
+  </div>
+
+  <div class="grid grid-cols-12 gap-md mt-3xl mt-md-0" data-gsap="reveal">
+    <div class="col-start-1 col-start-md-3 col-span-12 col-span-md-4">
+      {% include '../video/video.twig' with { video: {
+        label: 'Recitarte',
+        class: 'recitarte ratio-9-16',
+
+        sources: [{ src: '/videos/recitarte-2.mp4', type: 'video/mp4' }]
+      } } %}
+    </div>
+  </div>
+  
+
+</section>
+
+<section>
+  
+  <div class="grid grid-cols-12 gap-md" data-gsap="reveal">
     <div class="col-span-12 col-span-md-6 col-start-1 col-start-md-2 mb-2xl">
 
       <div class="text-xs grey">
@@ -133,6 +208,8 @@
   </div>
 
 </section>
+
+
 
 <section>
   
