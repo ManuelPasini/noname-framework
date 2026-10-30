@@ -1,8 +1,10 @@
 {# component: { title, subtitle, rich_text, alignment: 'left' | 'center' | 'right' } #}
+{% set embedded = component.embedded|default(false) %}
 {% set alignment = component.alignment|default('left') %}
 {% set width = component.width|default('content-width-full') %}
-<section class="text-component {{ width|escape('html_attr') }} text-align-{{ alignment }} my-3xl">
+{% set element = 'div' %}
+<{{ element }} class="text-component{% if embedded %} container{% endif %} {{ width|escape('html_attr') }} text-align-{{ alignment }} my-3xl">
   {% if component.title %}<h2 class="text-component__title text-3xl weight-700 mb-xs">{{ component.title|escape }}</h2>{% endif %}
   {% if component.subtitle %}<h3 class="text-component__subtitle text-lg mb-xl">{{ component.subtitle|escape }}</h3>{% endif %}
   {% if component.rich_text %}<div class="text-component__rich-text text-xs">{{ component.rich_text|raw }}</div>{% endif %}
-</section>
+</{{ element }}>

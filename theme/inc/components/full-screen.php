@@ -3,9 +3,8 @@
 $text = require __DIR__ . '/text.php';
 
 return [
-    'type' => 'full-screen',
     'label' => 'Full screen',
-    'template' => 'full-screen/full-screen.twig',
+    'section_class' => 'full-screen w-full relative h-screen flex justify-center align-center overflow-hidden',
     'full_bleed' => true,
     'fields' => array_merge(
         [
@@ -17,11 +16,14 @@ return [
     'normalize' => static function (array $data) use ($text): array {
         $image_id = (int) ($data['background_image'] ?? 0);
 
+        $text_data = $text['normalize']($data);
+        $text_data['embedded'] = true;
+
         return [
             'background_image' => [
                 'src' => $image_id ? (wp_get_attachment_image_url($image_id, 'full') ?: '') : '',
             ],
-            'text' => $text['normalize']($data),
+            'text' => $text_data,
         ];
     },
 ];

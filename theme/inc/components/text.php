@@ -1,9 +1,7 @@
 <?php
 
 return [
-    'type' => 'text',
-    'label' => 'Text',
-    'template' => 'text/text.twig',
+    'section_class' => 'text-component',
     'fields' => [
         \Carbon_Fields\Field::make('select', 'width', 'Larghezza')
             ->add_options([

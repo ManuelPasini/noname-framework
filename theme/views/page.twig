@@ -1,12 +1,10 @@
 {% extends 'base.twig' %}
 {% block content %}
   {% for component in components %}
-    {% if component.full_bleed %}
-      {% include component.template with { component: component.data } only %}
-    {% else %}
-      <div class="container">
+    <section class="{{ component.section_class|escape('html_attr') }}">
+      {% if not component.full_bleed %}<div class="container">{% endif %}
         {% include component.template with { component: component.data } only %}
-      </div>
-    {% endif %}
+      {% if not component.full_bleed %}</div>{% endif %}
+    </section>
   {% endfor %}
 {% endblock %}

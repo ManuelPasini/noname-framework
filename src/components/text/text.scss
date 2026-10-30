@@ -1,1 +1,6 @@
 // Riservato alle personalizzazioni: la composizione usa le utility del framework.
+.text-component  {
+    h3 + div {
+      margin-top: calc(var(--space-lg) * -1);
+    }
+  }

@@ -2,8 +2,8 @@
 @use "./global";
 @use "./typography";
 @use "./media";
-@use "./utilities";
 @use "./layout";
+@use "./utilities";
 
 // Stili specifici dei componenti.
 @use "../components/header/header";
@@ -11,5 +11,6 @@
 @use "../components/text/text";
 @use "../components/gallery/gallery";
 @use "../components/video/video";
+@use "../components/full-screen/full-screen";
 @use "../components/portfolio/portfolio";
 @use "../components/footer/footer";

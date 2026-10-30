@@ -10,7 +10,7 @@
     {% if component.text %}<p class="editorial__text text-sm m-0">{{ component.text|escape|nl2br }}</p>{% endif %}
   </div>
 {% endset %}
-<section class="editorial {{ width|escape('html_attr') }} grid grid-cols-1 grid-cols-md-12 align-center gap-0 my-3xl">
+<div class="editorial__layout {{ width|escape('html_attr') }} grid grid-cols-1 grid-cols-md-12 align-center gap-0 my-3xl">
   {% if text_first %}{{ copy|raw }}{% endif %}
   {% if component.image.src %}
     <div class="editorial__media {{ image_class }} media {{ ratio|escape('html_attr') }} overflow-hidden">
@@ -18,4 +18,4 @@
     </div>
   {% endif %}
   {% if not text_first %}{{ copy|raw }}{% endif %}
-</section>
+</div>

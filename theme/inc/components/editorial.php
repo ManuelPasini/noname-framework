@@ -1,9 +1,6 @@
 <?php
 
 return [
-    'type' => 'editorial',
-    'label' => 'Editorial',
-    'template' => 'editorial/editorial.twig',
     'fields' => [
         \Carbon_Fields\Field::make('text', 'title', 'Titolo'),
         \Carbon_Fields\Field::make('textarea', 'text', 'Testo'),

@@ -22,8 +22,9 @@ foreach (is_array($rows) ? $rows : [] as $row) {
 
     $components[] = [
         'type' => $type,
-        'template' => $definition['template'],
+        'template' => $definition['template'] ?? "$type/$type.twig",
         'full_bleed' => $definition['full_bleed'] ?? false,
+        'section_class' => $definition['section_class'] ?? $type,
         'data' => $definition['normalize']($row),
     ];
 }
