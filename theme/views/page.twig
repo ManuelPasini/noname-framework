@@ -1,6 +1,12 @@
 {% extends 'base.twig' %}
 {% block content %}
   {% for component in components %}
-    {% include component.template with { component: component.data } only %}
+    {% if component.full_bleed %}
+      {% include component.template with { component: component.data } only %}
+    {% else %}
+      <div class="container">
+        {% include component.template with { component: component.data } only %}
+      </div>
+    {% endif %}
   {% endfor %}
 {% endblock %}

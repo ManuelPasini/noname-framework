@@ -1,0 +1,17 @@
+{# component: { background_image: { src }, text: { title, subtitle, rich_text, alignment, width } } #}
+<section class="full-screen w-full relative h-screen flex justify-center align-center overflow-hidden">
+  {% if component.background_image.src %}
+    <img
+      class="absolute inset-0 w-full h-screen object-cover object-center z-0"
+      src="{{ component.background_image.src|escape('html_attr') }}"
+      alt=""
+      aria-hidden="true"
+      loading="eager"
+      decoding="async"
+    >
+  {% endif %}
+
+  <div class="relative z-10">
+    {% include 'text/text.twig' with { component: component.text } only %}
+  </div>
+</section>

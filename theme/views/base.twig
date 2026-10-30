@@ -9,8 +9,8 @@
     {{ function('wp_body_open')|raw }}
     <div class="container">
       {% include 'header/header.twig' %}
-      <main id="content">{% block content %}{% endblock %}</main>
     </div>
+    <main id="content">{% block content %}{% endblock %}</main>
     {{ function('wp_footer')|raw }}
   </body>
 </html>

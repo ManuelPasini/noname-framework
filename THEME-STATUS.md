@@ -35,6 +35,8 @@ Componenti pagina
 └── Editorial
 ~~~
 
+È disponibile anche il layout `Full screen`, che usa un’immagine a piena viewport come sfondo e inserisce il componente Text sopra di essa.
+
 Lo stesso tipo può essere inserito più volte. Una pagina può quindi essere composta, per esempio, da:
 
 ~~~text
@@ -77,6 +79,16 @@ Il campo è di tipo immagine e salva l’ID dell’allegato WordPress. L’ID vi
 
 Il contenitore post_meta Componenti pagina è disponibile solo per il post type page.
 
+La definizione dei componenti è centralizzata in theme/inc/components.php. Ogni componente ha un proprio file in theme/inc/components/ che restituisce:
+
+- il tipo;
+- l’etichetta del layout;
+- il template Twig;
+- i campi Carbon Fields;
+- una funzione normalize che trasforma i dati grezzi nel formato usato dal template.
+
+Lo stesso registro viene caricato sia da functions.php, per costruire i campi del back-end, sia da page.php, per normalizzare i dati del front-end. In questo modo la definizione non viene duplicata.
+
 Il campo principale è:
 
 ~~~text
@@ -101,6 +113,8 @@ Il layout editorial contiene:
 - rapporto dell’immagine;
 - disposizione immagine/testo;
 - larghezza.
+
+Il layout full-screen contiene un’immagine di sfondo e riutilizza tutti i campi del layout Text. È marcato come componente `full_bleed`, quindi viene renderizzato direttamente dentro `main`, fuori dal container laterale. Il template usa le utility `relative`, `w-full`, `h-screen`, `absolute`, `inset-0`, `object-cover`, `object-center` e `z-10`.
 
 ### Timber e Twig
 
@@ -273,14 +287,16 @@ Per aggiungere, ad esempio, una Gallery:
 6. eseguire npm.cmd run build:theme per copiare il Twig nel tema;
 7. salvare una pagina e verificare il risultato nel front-end.
 
-Il ciclo di Twig è già predisposto per più istanze e per l’ordine arbitrario. Ogni nuovo componente deve dichiarare il proprio layout, la propria normalizzazione PHP e il proprio template; non è più necessario aggiungere un nuovo ramo in page.twig.
+Il ciclo di Twig è già predisposto per più istanze e per l’ordine arbitrario. I componenti normali vengono avvolti automaticamente in un container; quelli marcati `full_bleed` vengono lasciati a larghezza piena. Ogni nuovo componente deve dichiarare il proprio layout, la propria normalizzazione PHP e il proprio template; non è più necessario aggiungere un nuovo ramo in page.twig.
 
 ## 7. File principali da conoscere
 
 ~~~text
 theme/composer.json       dipendenze PHP: Timber e Carbon Fields
-theme/functions.php       bootstrap, campi Carbon Fields, contesto Timber
-theme/page.php            lettura e normalizzazione dei componenti
+theme/functions.php       bootstrap, registro Carbon Fields, contesto Timber
+theme/page.php            lettura e normalizzazione tramite registro
+theme/inc/components.php  registro centrale dei componenti
+theme/inc/components/     campi e adapter dei singoli componenti
 theme/front-page.php      riuso del template per la homepage
 theme/views/page.twig     ciclo di rendering dei componenti
 src/components/           sorgenti Twig e SCSS dei componenti

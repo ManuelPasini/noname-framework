@@ -25,63 +25,29 @@ add_action('after_setup_theme', function () {
 });
 
 add_action('carbon_fields_register_fields', function () {
+    $registry = require __DIR__ . '/inc/components.php';
+
     \Carbon_Fields\Container::make('theme_options', 'Impostazioni sito')
         ->add_fields([
             \Carbon_Fields\Field::make('image', 'pixelcut_brand_image', 'Logo header')
                 ->set_value_type('id'),
         ]);
 
+    $components_field = \Carbon_Fields\Field::make('complex', 'pixelcut_components', 'Componenti')
+        ->set_layout('grid')
+        ->set_collapsed(true);
+
+    foreach ($registry as $type => $definition) {
+        $components_field->add_fields(
+            $type,
+            $definition['label'] ?? ucfirst($type),
+            $definition['fields']
+        );
+    }
+
     \Carbon_Fields\Container::make('post_meta', 'Componenti pagina')
         ->where('post_type', '=', 'page')
-        ->add_fields([
-            \Carbon_Fields\Field::make('complex', 'pixelcut_components', 'Componenti')
-                ->set_layout('tabbed-horizontal')
-                ->set_collapsed(true)
-                ->add_fields('text', 'Text', [
-                    \Carbon_Fields\Field::make('select', 'width', 'Larghezza')
-                        ->add_options([
-                            'content-width-full' => 'Larghezza 100%',
-                            'content-width-8' => 'Larghezza 80%',
-                        ]),
-                    \Carbon_Fields\Field::make('select', 'alignment', 'Allineamento')
-                        ->add_options([
-                            'left' => 'Sinistra',
-                            'center' => 'Centro',
-                            'right' => 'Destra',
-                        ]),
-                    \Carbon_Fields\Field::make('text', 'title', 'Titolo'),
-                    \Carbon_Fields\Field::make('text', 'subtitle', 'Sottotitolo'),
-                    \Carbon_Fields\Field::make('rich_text', 'rich_text', 'Testo'),
-                ])
-                ->add_fields('editorial', 'Editorial', [
-                    \Carbon_Fields\Field::make('select', 'width', 'Larghezza')
-                        ->add_options([
-                            'content-width-full' => 'Larghezza 100%',
-                            'content-width-8' => 'Larghezza 80%',
-                        ]),
-                    \Carbon_Fields\Field::make('text', 'title', 'Titolo'),
-                    \Carbon_Fields\Field::make('textarea', 'text', 'Testo'),
-                    \Carbon_Fields\Field::make('image', 'image', 'Immagine')
-                        ->set_value_type('id'),
-                    \Carbon_Fields\Field::make('select', 'layout', 'Layout')
-                        ->add_options([
-                            'image-text' => 'Immagine / testo',
-                            'text-image' => 'Testo / immagine',
-                        ]),
-                    \Carbon_Fields\Field::make('select', 'ratio', 'Rapporto immagine')
-                        ->add_options([
-                            'ratio-1-1' => '1:1',
-                            'ratio-4-3' => '4:3',
-                            'ratio-3-2' => '3:2',
-                            'ratio-16-9' => '16:9',
-                            'ratio-21-9' => '21:9',
-                            'ratio-4-5' => '4:5',
-                            'ratio-3-4' => '3:4',
-                            'ratio-9-16' => '9:16',
-                        ]),
-                    
-                ]),
-        ]);
+        ->add_fields([$components_field]);
 });
 
 add_filter('timber/context', function (array $context): array {
